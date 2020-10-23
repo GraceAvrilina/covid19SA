@@ -1,0 +1,22 @@
+#list-draft {
+}
+
+.top-item {
+  width: 100%;
+  display: block;
+}
+.bottom-item {
+  width: 100%;
+  .price,
+  .item-date {
+    font-size: 0.85rem;
+    display: inline;
+  }
+  .item-date {
+    float: right;
+    margin-right: 10px;
+  }
+}
+small {
+  font-size: 0.85rem;
+}

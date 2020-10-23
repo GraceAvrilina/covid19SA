@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" slot="start"> <ion-icon name="arrow-back"></ion-icon> </ion-button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons slot="primary">
+      <!-- <ion-button (click)="presentPopover($event)" color="default">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button> -->
+      <ion-buttons slot="primary">
+        <label class="additem" (click)="addItem()">Tambah Item</label>
+      </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="detail">
+    <app-form-reimburse
+      [type]="type"
+      [oldData]="data"
+      [listBendera]="listBendera"
+      [typeReimburse]="type_reimburse"
+    ></app-form-reimburse>
+  </div>
+</ion-content>

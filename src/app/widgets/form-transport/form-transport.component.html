@@ -1,0 +1,458 @@
+<form #formData="ngForm" (ngSubmit)="onSubmit(formData.value)">
+  <!-- <div [class.hidden]="type == 'sent'" class="info-input-form"> -->
+    <!-- <ion-row>
+      <ion-col size="2"
+        ><div class="info-icon"><ion-icon name="information-circle-outline"></ion-icon></div
+      ></ion-col>
+      <ion-col size="10"
+        ><div class="info-text">
+          {{info_form}}
+        </div></ion-col
+      >
+    </ion-row> -->
+  <!-- </div> -->
+  <ion-item *ngIf="type == 'sent'">
+    <ion-label position="stacked">Nomor Laporan</ion-label>
+    <small class="label-only">{{
+      transport.nomor_laporan == '' || transport.nomor_laporan == null ? '-' : transport.nomor_laporan
+    }}</small>
+  </ion-item>
+
+  <h6 class="textstyle">A. Deteksi Dini (Kondisi Hari Ini) </h6>
+<ion-list lines="none">
+    <ion-radio-group value="tidak">
+
+  <ion-list-header>
+    <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;">1. Demam suhu diatas 38 derajat celcius? <span class="required">*</span></ion-label>
+  </ion-list-header>
+
+  <ion-row style="height: 9%;">
+      <ion-col size="6">
+        <ion-item>
+        <ion-label>Ya</ion-label>
+        <ion-radio slot="start" value="ya"></ion-radio>
+      </ion-item>
+      </ion-col>
+
+
+      <ion-col size="6">
+      <ion-item>
+        <ion-label>Tidak</ion-label>
+        <ion-radio slot="start" value="tidak"></ion-radio>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none">
+  <ion-radio-group value="tidak">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;">2. Sesak Nafas? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row style="height: 9%;">
+    <ion-col size="6">
+      <ion-item>
+      <ion-label>Ya</ion-label>
+      <ion-radio slot="start" value="ya"></ion-radio>
+    </ion-item>
+    </ion-col>
+
+
+    <ion-col size="6">
+    <ion-item>
+      <ion-label>Tidak</ion-label>
+      <ion-radio slot="start" value="tidak"></ion-radio>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none">
+  <ion-radio-group value="tidak">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;">3. Batuk kering tanpa radang tenggorokan? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row style="height: 9%;">
+    <ion-col size="6">
+      <ion-item>
+      <ion-label>Ya</ion-label>
+      <ion-radio slot="start" value="ya"></ion-radio>
+    </ion-item>
+    </ion-col>
+
+
+    <ion-col size="6">
+    <ion-item>
+      <ion-label>Tidak</ion-label>
+      <ion-radio slot="start" value="tidak"></ion-radio>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none">
+  <ion-radio-group value="tidak">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;">4. Lemah, letih, lesu? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row style="height: 9%;">
+    <ion-col size="6">
+      <ion-item>
+      <ion-label>Ya</ion-label>
+      <ion-radio slot="start" value="ya"></ion-radio>
+    </ion-item>
+    </ion-col>
+
+
+    <ion-col size="6">
+    <ion-item>
+      <ion-label>Tidak</ion-label>
+      <ion-radio slot="start" value="tidak"></ion-radio>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none">
+  <ion-radio-group value="tidak">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;">5. Radang tenggorokan? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row style="height: 9%;">
+    <ion-col size="6">
+      <ion-item>
+      <ion-label>Ya</ion-label>
+      <ion-radio slot="start" value="ya"></ion-radio>
+    </ion-item>
+    </ion-col>
+
+
+    <ion-col size="6">
+    <ion-item>
+      <ion-label>Tidak</ion-label>
+      <ion-radio slot="start" value="tidak"></ion-radio>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none">
+  <ion-radio-group value="tidak">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;">6. Pilek? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+
+<ion-row style="height: 9%;">
+    <ion-col size="6">
+      <ion-item>
+      <ion-label>Ya</ion-label>
+      <ion-radio slot="start" value="ya"></ion-radio>
+    </ion-item>
+    </ion-col>
+
+
+    <ion-col size="6">
+    <ion-item>
+      <ion-label>Tidak</ion-label>
+      <ion-radio slot="start" value="tidak"></ion-radio>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-item lines="none">
+  <ion-label position="stacked">7. Suhu tubuh Anda saat ini? (dalam derajat Celcius)<span class="required">*</span></ion-label>
+  <ion-input *ngIf="type != 'sent'" [(ngModel)]="transport.klien" name="klien" placeholder="Suhu tubuh Anda saat ini? (dalam derajat Celcius)"></ion-input>
+  <small *ngIf="type == 'sent'" class="label-only">{{ transport.klien }}</small>
+</ion-item>
+
+<ion-item lines="none">
+  <ion-label position="stacked">8. Pernyataan: <span class="required">*</span></ion-label>
+  <ion-row >
+    <ion-col size="2">
+      <ion-checkbox color="dark"></ion-checkbox>
+    </ion-col>    
+    <ion-col size="10">
+  <div> Saya menyatakan bahwa semua pernyataan yang saya jawab adalah sesuai
+    dengan kondisi yang sebenarnya</div>
+    </ion-col>
+    </ion-row>
+</ion-item>
+
+  <!-- <ion-item [class.hidden]="type == 'sent'" (click)="searchActivityName()">
+    <ion-label position="stacked">Nama Aktivitas <span class="required">*</span></ion-label>
+    <small class="label-only">{{ transport.project }}</small>
+    <ion-input style="display: none" [(ngModel)]="transport.project" name="project" readonly></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="type == 'sent'">
+    <ion-label position="stacked">Nama Aktivitas</ion-label>
+    <small class="label-only">{{ transport.project }}</small>
+  </ion-item>
+
+  <ion-item [class.hidden]="type == 'sent'" (click)="searchTypeActivity()">
+    <ion-label position="stacked">Jenis Aktivitas <span class="required">*</span></ion-label>
+    <small class="label-only">{{ transport.aktivitas.name }}</small>
+    <ion-input style="display: none" [(ngModel)]="transport.aktivitas.id" name="activity_id" readonly></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="type == 'sent'">
+    <ion-label position="stacked">Jenis Aktivitas </ion-label>
+    <small class="label-only">{{ transport.aktivitas.name }}</small>
+  </ion-item>
+
+  <ion-item [class.hidden]="type == 'sent'" *ngIf="transport.aktivitas.is_specify_bendera == 1">
+    <ion-label position="stacked">Bendera Aktivitas</ion-label>
+    <ion-select [(ngModel)]="transport.bendera_aktivitas" name="bendera_aktivitas" placeholder="" interface="popover">
+      <ion-select-option *ngFor="let t of listBendera" [value]="t.id">{{ t.name }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item *ngIf="type == 'sent'">
+    <ion-label position="stacked">Bendera Aktivitas</ion-label>
+    <small class="label-only">{{ oldData.id_bendera.name }}</small>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Nama Klien <span class="required" *ngIf="type != 'sent'">*</span></ion-label>
+    <ion-input *ngIf="type != 'sent'" [(ngModel)]="transport.klien" name="klien"></ion-input>
+    <small *ngIf="type == 'sent'" class="label-only">{{ transport.klien }}</small>
+  </ion-item>
+
+  <ion-item *ngIf="type == 'sent'">
+    <ion-label position="stacked">Pemberi Tugas </ion-label>
+    <small class="label-only">{{ leader.name }}</small>
+  </ion-item>
+
+  <ion-item *ngIf="type != 'sent'" (click)="showModalLeader()">
+    <ion-label position="stacked">Pemberi Tugas <span class="required">*</span></ion-label>
+    <small class="label-only">{{ leader.name }}</small>
+  </ion-item>
+
+  <ion-item *ngIf="type == 'sent'">
+    <ion-label position="stacked">Jenis Transportasi</ion-label>
+    <small class="label-only">{{ oldData.id_jenis.name }}</small>
+  </ion-item>
+  <ion-item [class.hidden]="type == 'sent'">
+    <ion-label position="stacked">Jenis Transportasi <span class="required">*</span></ion-label>
+    <ion-select
+      #C
+      (ionChange)="onChangeType(C.value)"
+      [(ngModel)]="transport.jenis_transport"
+      name="jenis_transport"
+      placeholder=""
+      interface="popover"
+    >
+      <ion-select-option *ngFor="let t of typeTransport" [value]="t.id">{{ t.name }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item [class.hidden]="type == 'sent'">
+    <ion-label autofocus="true" position="stacked">Jenis Pembayaran <span class="required">*</span></ion-label>
+    <ion-select
+      #JB
+      (ionChange)="changeJenisBayar(JB.value)"
+      [(ngModel)]="transport.jenis_bayar"
+      name="jenis_bayar"
+      placeholder=""
+      interface="popover"
+    >
+      <ion-select-option *ngFor="let opt of payment_options" value="{{ opt.value }}">{{ opt.name }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item *ngIf="transport.payment_options != undefined && type == 'sent'">
+    <ion-label position="stacked">Jenis Pembayaran </ion-label>
+    <small class="label-only">{{ transport.payment_options.name }}</small>
+  </ion-item>
+
+  <ion-item [class.hidden]="type == 'sent'" *ngIf="transport.payment_options != undefined && list_voucher.length != 0">
+    <ion-label autofocus="true" position="stacked">Kode Voucher</ion-label>
+    <ion-select
+      [(ngModel)]="transport.kode_voucher"
+      [attr.disabled]="!transport.payment_options.voucher_enabled"
+      name="kode_voucher"
+      interface="popover"
+    >
+      <ion-select-option *ngFor="let voucher of list_voucher" value="{{ voucher.kode_voucher }}">{{
+        voucher.kode_voucher
+      }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item [class.hidden]="type == 'sent'" *ngIf="transport.payment_options != undefined && list_voucher.length == 0">
+    <ion-label autofocus="true" position="stacked">Kode Voucher</ion-label>
+    <small class="label-only">Anda tidak memiliki kode voucher</small>
+  </ion-item>
+
+  <ion-item *ngIf="type == 'sent'">
+    <ion-label position="stacked">Kode Voucher </ion-label>
+    <small class="label-only">{{ transport.kode_voucher }}</small>
+  </ion-item>
+
+  <ion-item [class.hidden]="type == 'sent'">
+    <ion-label autofocus="true" position="stacked">Nominal <span class="required">*</span></ion-label>
+    <ion-input
+      [class.hidden]="type == 'sent'"
+      name="nominal"
+      placeholder="0"
+      [(ngModel)]="transport.nominal"
+      type="number"
+    ></ion-input>
+    <small *ngIf="type == 'sent'" class="label-only">{{ transport.nominal | formatRupiah }}</small>
+  </ion-item>
+
+  <ion-item *ngIf="type == 'sent'">
+    <ion-label autofocus="true" position="stacked">Nominal</ion-label>
+    <small
+      class="label-only"
+      [class.correction]="oldData.nominal_koreksi != null && oldData.nominal_koreksi != oldData.nominal"
+      >{{ transport.nominal | formatRupiah }}</small
+    >
+    <small
+      *ngIf="oldData.nominal_koreksi != null && oldData.nominal_koreksi != oldData.nominal"
+      class="label-only price-final"
+    >
+      {{ oldData.custom_nominal_koreksi }}
+    </small>
+  </ion-item>
+
+  <ion-row>
+    <ion-col size="6">
+      <ion-item>
+        <ion-label autofocus="true" position="stacked"
+          >Dari <span class="required" *ngIf="type != 'sent'">*</span></ion-label
+        >
+        <ion-input *ngIf="type != 'sent'" [(ngModel)]="transport.dari" name="dari"></ion-input>
+        <small *ngIf="type == 'sent'" class="label-only">{{ transport.dari }}</small>
+      </ion-item>
+    </ion-col>
+    <ion-col size="6">
+      <ion-item>
+        <ion-label autofocus="true" position="stacked"
+          >Ke <span class="required" *ngIf="type != 'sent'">*</span></ion-label
+        >
+        <ion-input *ngIf="type != 'sent'" [(ngModel)]="transport.ke" name="ke"></ion-input>
+        <small *ngIf="type == 'sent'" class="label-only">{{ transport.dari }}</small>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-item>
+    <ion-label autofocus="true" position="stacked"
+      >Waktu Berangkat <span class="required" *ngIf="type != 'sent'">*</span></ion-label
+    >
+    <ion-datetime
+      *ngIf="type != 'sent'"
+      [min]="minDate_report"
+      [(ngModel)]="transport.waktu_berangkat"
+      name="waktu_berangkat"
+      display-format="DD-MM-YYYY HH:mm"
+    ></ion-datetime>
+    <ion-datetime
+      *ngIf="type == 'sent'"
+      [attr.readonly]="type == 'sent'"
+      [min]="minDate_report"
+      [(ngModel)]="transport.waktu_berangkat"
+      name="waktu_berangkat"
+      display-format="DD-MM-YYYY HH:mm"
+    ></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label autofocus="true" position="stacked">Waktu Tiba <span class="required" *ngIf="type != 'sent'">*</span></ion-label>
+    <ion-datetime
+      *ngIf="type != 'sent'"
+      [min]="minDate_report"
+      [(ngModel)]="transport.waktu_tiba"
+      name="waktu_tiba"
+      display-format="DD-MM-YYYY HH:mm"
+    ></ion-datetime>
+    <ion-datetime
+      *ngIf="type == 'sent'"
+      [attr.readonly]="type == 'sent'"
+      [min]="minDate_report"
+      [(ngModel)]="transport.waktu_tiba"
+      name="waktu_tiba"
+      display-format="DD-MM-YYYY HH:mm"
+    ></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Keterangan</ion-label>
+    <ion-textarea [(ngModel)]="transport.keterangan" placeholder="{{ placeholder_keterangan }}" name="keterangan">
+    </ion-textarea>
+  </ion-item>
+
+  <div class="photo-upload">
+    <label>Media <span class="required" *ngIf="type != 'sent'">*</span></label>
+    <div *ngIf="type != 'sent'" class="list-imgupload scrolling-wrapper">
+      <div
+        *ngFor="let img of list_img; let i = index"
+        (click)="selectImg(i)"
+        [class.active]="img_idx == i"
+        class="item-img"
+      >
+        <img src="{{ img }}" />
+        <div *ngIf="img_idx == i" class="btn-delete">
+          <ion-icon name="trash" (click)="removeImg(img_idx)"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="type == 'sent'" class="list-imgupload scrolling-wrapper">
+      <div (click)="prevImage()" *ngFor="let img of list_img; let i = index" class="item-img">
+        <img src="{{ img }}" />
+      </div>
+    </div>
+
+    <ion-button *ngIf="type != 'sent'" (click)="presentModal()" size="small"
+      ><ion-icon name="add" slot="start"></ion-icon> Upload Gambar
+    </ion-button> 
+  </div>-->
+  <div class="button-action" *ngIf="type != 'sent'">
+    <ion-button type="submit" expand="block">Simpan & Kirim</ion-button>
+    <!-- <ion-button
+      *ngIf="type != 'draft'"
+      type="button"
+      expand="block"
+      (click)="onSaveToDraft(formData.value)"
+      color="light"
+      >Simpan sebagai draft</ion-button
+    >
+    <ion-button
+      *ngIf="type == 'draft'"
+      type="button"
+      expand="block"
+      (click)="onUpdateDraft(formData.value)"
+      color="light"
+      >Ubah Draft</ion-button
+    >
+
+    <ion-button *ngIf="type == 'draft'" type="button" expand="block" (click)="deleteDraft()" color="danger"
+      >Hapus Draft</ion-button
+    > -->
+  </div>
+</form>

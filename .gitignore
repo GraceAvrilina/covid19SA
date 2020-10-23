@@ -1,0 +1,14 @@
+# NPM files
+node_modules
+plugins
+resources
+
+# coverage
+coverage/
+
+# compiled output
+www/
+platforms/
+/tmp
+
+.env

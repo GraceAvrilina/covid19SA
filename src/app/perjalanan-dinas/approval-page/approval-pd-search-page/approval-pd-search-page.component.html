@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" slot="start"> <ion-icon name="arrow-back"></ion-icon> </ion-button>
+    </ion-buttons>
+    <ion-title>Cari Perjalanan Dinas</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="form-searching">
+    <ion-item>
+      <ion-label position="stacked">Kata kunci</ion-label>
+      <ion-input
+        name="keyword"
+        [(ngModel)]="params.keyword"
+        placeholder="(aktivitas/klien/karyawan/no.laporan)"
+      ></ion-input>
+    </ion-item>
+    <ion-item (click)="searchTypeActivity()">
+      <ion-label position="stacked">Jenis Aktivitas</ion-label>
+      <small class="label-only">{{ params.aktivitas_name }}</small>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Bendera Aktivitas</ion-label>
+      <ion-select [(ngModel)]="params.id_bendera" name="bendera_aktivitas" placeholder="" interface="popover">
+        <ion-select-option *ngFor="let t of listBendera" [value]="t.id">{{ t.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Tanggal Dinas</ion-label>
+      <ion-datetime
+        [(ngModel)]="params.tgl_dinas"
+        name="tgl_dinas"
+        display-format="YYYY-MM-DD"
+        placeholder="Pilih tanggal"
+      ></ion-datetime>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label position="stacked">Status</ion-label>
+      <ion-select [(ngModel)]="params.status" name="status" placeholder="" interface="popover">
+        <ion-select-option [value]="'waiting'">Menunggu</ion-select-option>
+        <ion-select-option [value]="'approved'">Disetujui</ion-select-option>
+        <ion-select-option [value]="'rejected'">Ditolak</ion-select-option>
+      </ion-select>
+    </ion-item> -->
+    <br />
+    <ion-button type="submit" expand="block" (click)="search()">Cari</ion-button>
+    <ion-button color="light" expand="block" (click)="reset()">Reset</ion-button>
+  </div>
+</ion-content>

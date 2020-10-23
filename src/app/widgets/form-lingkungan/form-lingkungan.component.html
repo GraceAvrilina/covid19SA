@@ -1,0 +1,558 @@
+<form #formData="ngForm" (ngSubmit)="submit(formData.value);">
+  <!-- <div [class.hidden]="type == 'sent'" class="info-input-form"> -->
+    <!-- <ion-row>
+      <ion-col size="2"
+        ><div class="info-icon"><ion-icon name="information-circle-outline"></ion-icon></div
+      ></ion-col>
+      <ion-col size="10"
+        ><div class="info-text">
+          {{info_form}}
+        </div></ion-col
+      >
+    </ion-row> -->
+
+    <div *ngFor="let item of dataQ; let i=index">
+      <h6 *ngIf="item.input_type == 'separator'" class="textstyle"> {{item.title_text}} </h6>
+    
+      <ion-list lines="none" [(ngModel)]="r1"  [name]="item.parameter_name" ngDefaultControl *ngIf="item.parameter_name == 'input_q2'">
+        <ion-radio-group value="">
+    
+      <ion-list-header>
+        <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;"> {{item.title_text}} <span *ngIf="item.required == 'true'" class="required">*</span></ion-label>
+      </ion-list-header>
+    
+      <div  >
+        <div *ngFor="let isi of item.list" style="width: 33%; display: inline-block;">
+            <ion-item>
+            <ion-label> {{isi.text}} </ion-label>
+            <ion-radio slot="start" (ionSelect)="select(item.parameter_name, isi.id)" [value]="isi.text" style="margin-right: 5px;"></ion-radio>
+          </ion-item>
+        </div>
+      </div>
+    
+    </ion-radio-group>
+      </ion-list>
+
+    <ion-list lines="none" [(ngModel)]="r2"  [name]="item.parameter_name" ngDefaultControl *ngIf="item.parameter_name == 'input_q3'">
+      <ion-radio-group value="">
+  
+    <ion-list-header>
+      <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;"> {{item.title_text}} <span *ngIf="item.required == 'true'" class="required">*</span></ion-label>
+    </ion-list-header>
+  
+    <div  >
+      <div *ngFor="let isi of item.list" style="width: 33%; display: inline-block;">
+          <ion-item>
+          <ion-label> {{isi.text}} </ion-label>
+          <ion-radio slot="start" (ionSelect)="select(item.parameter_name, isi.id)" [value]="isi.text" style="margin-right: 5px;"></ion-radio>
+        </ion-item>
+      </div>
+    </div>
+  
+  </ion-radio-group>
+    </ion-list>
+
+    <ion-list lines="none" [(ngModel)]="r3"  [name]="item.parameter_name" ngDefaultControl *ngIf="item.parameter_name == 'input_q4'">
+      <ion-radio-group value="">
+
+    <ion-list-header>
+      <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;"> {{item.title_text}} <span *ngIf="item.required == 'true'" class="required">*</span></ion-label>
+    </ion-list-header>
+
+    <div  >
+      <div *ngFor="let isi of item.list" style="width: 33%; display: inline-block;">
+          <ion-item>
+          <ion-label> {{isi.text}} </ion-label>
+          <ion-radio slot="start" (ionSelect)="select(item.parameter_name, isi.id)" [value]="isi.text" style="margin-right: 5px;"></ion-radio>
+        </ion-item>
+      </div>
+    </div>
+
+  </ion-radio-group>
+    </ion-list>
+
+    <ion-list lines="none" [(ngModel)]="r4"  [name]="item.parameter_name" ngDefaultControl *ngIf="item.parameter_name == 'input_q5'">
+      <ion-radio-group value="">
+
+    <ion-list-header>
+      <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;"> {{item.title_text}} <span *ngIf="item.required == 'true'" class="required">*</span></ion-label>
+    </ion-list-header>
+
+    <div  >
+      <div *ngFor="let isi of item.list" style="width: 33%; display: inline-block;">
+          <ion-item>
+          <ion-label> {{isi.text}} </ion-label>
+          <ion-radio slot="start" (ionSelect)="select(item.parameter_name, isi.id)" [value]="isi.text" style="margin-right: 5px;"></ion-radio>
+        </ion-item>
+      </div>
+    </div>
+
+    </ion-radio-group>
+    </ion-list>
+
+    <ion-list lines="none" [(ngModel)]="r5"  [name]="item.parameter_name" ngDefaultControl *ngIf="item.parameter_name == 'input_q6'">
+      <ion-radio-group value="">
+  
+    <ion-list-header>
+      <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;"> {{item.title_text}} <span *ngIf="item.required == 'true'" class="required">*</span></ion-label>
+    </ion-list-header>
+  
+    <div  >
+      <div *ngFor="let isi of item.list" style="width: 33%; display: inline-block;">
+          <ion-item>
+          <ion-label> {{isi.text}} </ion-label>
+          <ion-radio slot="start" (ionSelect)="select(item.parameter_name, isi.id)" [value]="isi.text" style="margin-right: 5px;"></ion-radio>
+        </ion-item>
+      </div>
+    </div>
+  
+  </ion-radio-group>
+    </ion-list>
+
+    <ion-list lines="none" [(ngModel)]="r6"  [name]="item.parameter_name" ngDefaultControl *ngIf="item.parameter_name == 'input_q7'">
+      <ion-radio-group value="">
+  
+    <ion-list-header>
+      <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;"> {{item.title_text}} <span *ngIf="item.required == 'true'" class="required">*</span></ion-label>
+    </ion-list-header>
+  
+    <div  >
+      <div *ngFor="let isi of item.list" style="width: 33%; display: inline-block;">
+          <ion-item>
+          <ion-label> {{isi.text}} </ion-label>
+          <ion-radio slot="start" (ionSelect)="select(item.parameter_name, isi.id)" [value]="isi.text" style="margin-right: 5px;"></ion-radio>
+        </ion-item>
+      </div>
+    </div>
+  
+  </ion-radio-group>
+    </ion-list>
+
+    <ion-list lines="none" [(ngModel)]="r7"  [name]="item.parameter_name" ngDefaultControl *ngIf="item.parameter_name == 'input_q8'">
+      <ion-radio-group value="">
+  
+    <ion-list-header>
+      <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;"> {{item.title_text}} <span *ngIf="item.required == 'true'" class="required">*</span></ion-label>
+    </ion-list-header>
+  
+    <div  >
+      <div *ngFor="let isi of item.list" style="width: 33%; display: inline-block;">
+          <ion-item>
+          <ion-label> {{isi.text}} </ion-label>
+          <ion-radio slot="start" (ionSelect)="select(item.parameter_name, isi.id)" [value]="isi.text" style="margin-right: 5px;"></ion-radio>
+        </ion-item>
+      </div>
+    </div>
+  
+  </ion-radio-group>
+    </ion-list>
+
+    <ion-list lines="none" [(ngModel)]="r8"  [name]="item.parameter_name" ngDefaultControl *ngIf="item.parameter_name == 'input_q9'">
+      <ion-radio-group value="">
+  
+    <ion-list-header>
+      <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;"> {{item.title_text}} <span *ngIf="item.required == 'true'" class="required">*</span></ion-label>
+    </ion-list-header>
+  
+    <div  >
+      <div *ngFor="let isi of item.list" style="width: 33%; display: inline-block;">
+          <ion-item>
+          <ion-label> {{isi.text}} </ion-label>
+          <ion-radio slot="start" (ionSelect)="select(item.parameter_name, isi.id)" [value]="isi.text" style="margin-right: 5px;"></ion-radio>
+        </ion-item>
+      </div>
+    </div>
+  
+  </ion-radio-group>
+    </ion-list>
+
+    <ion-list lines="none" [(ngModel)]="r9"  [name]="item.parameter_name" ngDefaultControl *ngIf="item.parameter_name == 'input_q10'">
+      <ion-radio-group value="">
+
+    <ion-list-header>
+      <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;"> {{item.title_text}} <span *ngIf="item.required == 'true'" class="required">*</span></ion-label>
+    </ion-list-header>
+
+    <div  >
+      <div *ngFor="let isi of item.list" style="width: 33%; display: inline-block;">
+          <ion-item>
+          <ion-label> {{isi.text}} </ion-label>
+          <ion-radio slot="start" (ionSelect)="select(item.parameter_name, isi.id)" [value]="isi.text" style="margin-right: 5px;"></ion-radio>
+        </ion-item>
+      </div>
+    </div>
+
+  </ion-radio-group>
+  </ion-list>
+
+  <ion-label position="stacked" style="font-size: small !important; margin-left: 15px;" *ngIf="item.input_type=='text'"> {{item.title_text}} <span *ngIf="item.required" class="required">*</span></ion-label>
+  <ion-item lines="none" *ngIf="item.input_type=='text'" style="padding-left: 15px; padding-right: 15px; margin-top: 10px;">
+  <ion-input  [placeholder]="item.title_text" (ngModel)="dataQ[i].parameter_name" [name]="item.parameter_name"></ion-input>
+  <!-- <small *ngIf="type == 'sent'" class="label-only">{{ transport.klien }}</small> -->
+</ion-item>
+
+<ion-item lines="none" *ngIf="item.input_type=='checkbox'">
+  <ion-label position="stacked"> {{item.title_text}} <span class="required">*</span></ion-label>
+  <ion-row >
+    <ion-col size="2" *ngFor="let isi of item.list">
+      <ion-checkbox color="dark" [(ngModel)]="isi.id" [name]="item.parameter_name"></ion-checkbox>
+    </ion-col>    
+    <ion-col size="10" >
+  <div> {{item.list[0].text}} </div>
+    </ion-col>
+    </ion-row>
+</ion-item>
+
+  <div class="button-action" *ngIf="item.input_type == 'submit'">
+    <ion-button type="submit" color="success" expand="block" >Simpan & Kirim</ion-button>
+
+  </div>
+</div>
+
+  <!-- </div> --> 
+  <!-- <ion-item *ngIf="type == 'sent'">
+    <ion-label position="stacked">Nomor Laporan</ion-label>
+    <small class="label-only">{{
+      lingkungan.nomor_laporan == '' || lingkungan.nomor_laporan == null ? '-' : lingkungan.nomor_laporan
+    }}</small>
+  </ion-item>
+
+  <h6 class="textstyle">Jika anggota keluarga atau warga sekitar anda mengalami gejala COVID-19 harap melaporkan dengan mengisi form berikut:</h6>
+
+      <ion-item>
+        <ion-label position="stacked" class="item item-input">1. Alamat <span class="required" *ngIf="type != 'sent'">*</span></ion-label>
+        <ion-input type="text" placeholder="Alamat"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" class="item item-input">2. Kota/Kabupaten <span class="required" *ngIf="type != 'sent'">*</span></ion-label>
+        <ion-input type="text" placeholder="Kota/Kabupaten"></ion-input>
+      </ion-item>
+      
+      <ion-list lines="none">
+        <ion-radio-group value="">
+
+  <ion-list-header>
+    <ion-label position="stacked" style="text-transform: capitalize;">3. Status COVID-19 Suami? <span class="required">*</span></ion-label>
+  </ion-list-header>
+
+  <ion-row>
+      <ion-col size="6">
+        <ion-item>
+        <ion-label>ODP</ion-label>
+        <ion-radio slot="start" value="ODP"></ion-radio>
+      </ion-item>
+      </ion-col>
+
+      <ion-col size="6">
+      <ion-item>
+        <ion-label>PDP</ion-label>
+        <ion-radio slot="start" value="PDP"></ion-radio>
+      </ion-item>
+    </ion-col>
+
+    <ion-col size="6">
+      <ion-item>
+        <ion-label>Suspect</ion-label>
+        <ion-radio slot="start" value="Suspect"></ion-radio>
+      </ion-item>
+    </ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none">
+  <ion-radio-group value="">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize;">4. Status COVID-19 Istri? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row>
+  <ion-col size="6">
+    <ion-item>
+    <ion-label>ODP</ion-label>
+    <ion-radio slot="start" value="ODP"></ion-radio>
+  </ion-item>
+  </ion-col>
+
+  <ion-col size="6">
+  <ion-item>
+    <ion-label>PDP</ion-label>
+    <ion-radio slot="start" value="PDP"></ion-radio>
+  </ion-item>
+</ion-col>
+
+<ion-col size="6">
+  <ion-item>
+    <ion-label>Suspect</ion-label>
+    <ion-radio slot="start" value="Suspect"></ion-radio>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none">
+  <ion-radio-group value="">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize;">5. Status COVID-19 Ayah? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row>
+  <ion-col size="6">
+    <ion-item>
+    <ion-label>ODP</ion-label>
+    <ion-radio slot="start" value="ODP"></ion-radio>
+  </ion-item>
+  </ion-col>
+
+  <ion-col size="6">
+  <ion-item>
+    <ion-label>PDP</ion-label>
+    <ion-radio slot="start" value="PDP"></ion-radio>
+  </ion-item>
+</ion-col>
+
+<ion-col size="6">
+  <ion-item>
+    <ion-label>Suspect</ion-label>
+    <ion-radio slot="start" value="Suspect"></ion-radio>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none">
+  <ion-radio-group value="">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize;">6. Status COVID-19 Anak? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row>
+  <ion-col size="6">
+    <ion-item>
+    <ion-label>ODP</ion-label>
+    <ion-radio slot="start" value="ODP"></ion-radio>
+  </ion-item>
+  </ion-col>
+
+  <ion-col size="6">
+  <ion-item>
+    <ion-label>PDP</ion-label>
+    <ion-radio slot="start" value="PDP"></ion-radio>
+  </ion-item>
+</ion-col>
+
+<ion-col size="6">
+  <ion-item>
+    <ion-label>Suspect</ion-label>
+    <ion-radio slot="start" value="Suspect"></ion-radio>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none">
+  <ion-radio-group value="">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize;">7. Status COVID-19 Ibu? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row>
+  <ion-col size="6">
+    <ion-item>
+    <ion-label>ODP</ion-label>
+    <ion-radio slot="start" value="ODP"></ion-radio>
+  </ion-item>
+  </ion-col>
+
+  <ion-col size="6">
+  <ion-item>
+    <ion-label>PDP</ion-label>
+    <ion-radio slot="start" value="PDP"></ion-radio>
+  </ion-item>
+</ion-col>
+
+<ion-col size="6">
+  <ion-item>
+    <ion-label>Suspect</ion-label>
+    <ion-radio slot="start" value="Suspect"></ion-radio>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none">
+  <ion-radio-group value="">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize;">8. Status COVID-19 Ayah Mertua? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row>
+  <ion-col size="6">
+    <ion-item>
+    <ion-label>ODP</ion-label>
+    <ion-radio slot="start" value="ODP"></ion-radio>
+  </ion-item>
+  </ion-col>
+
+  <ion-col size="6">
+  <ion-item>
+    <ion-label>PDP</ion-label>
+    <ion-radio slot="start" value="PDP"></ion-radio>
+  </ion-item>
+</ion-col>
+
+<ion-col size="6">
+  <ion-item>
+    <ion-label>Suspect</ion-label>
+    <ion-radio slot="start" value="Suspect"></ion-radio>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none">
+  <ion-radio-group value="">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize;">9. Status COVID-19 Ibu Mertua? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row>
+  <ion-col size="6">
+    <ion-item>
+    <ion-label>ODP</ion-label>
+    <ion-radio slot="start" value="ODP"></ion-radio>
+  </ion-item>
+  </ion-col>
+
+  <ion-col size="6">
+  <ion-item>
+    <ion-label>PDP</ion-label>
+    <ion-radio slot="start" value="PDP"></ion-radio>
+  </ion-item>
+</ion-col>
+
+<ion-col size="6">
+  <ion-item>
+    <ion-label>Suspect</ion-label>
+    <ion-radio slot="start" value="Suspect"></ion-radio>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none">
+  <ion-radio-group value="">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize;">10. Status COVID-19 Tetangga Kanan Kiri? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row>
+  <ion-col size="6">
+    <ion-item>
+    <ion-label>ODP</ion-label>
+    <ion-radio slot="start" value="ODP"></ion-radio>
+  </ion-item>
+  </ion-col>
+
+  <ion-col size="6">
+  <ion-item>
+    <ion-label>PDP</ion-label>
+    <ion-radio slot="start" value="PDP"></ion-radio>
+  </ion-item>
+</ion-col>
+
+<ion-col size="6">
+  <ion-item>
+    <ion-label>Suspect</ion-label>
+    <ion-radio slot="start" value="Suspect"></ion-radio>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none">
+  <ion-radio-group value="">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize;">11. Status COVID-19 Tetangga Radius 100m? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row>
+  <ion-col size="6">
+    <ion-item>
+    <ion-label>ODP</ion-label>
+    <ion-radio slot="start" value="ODP"></ion-radio>
+  </ion-item>
+  </ion-col>
+
+  <ion-col size="6">
+  <ion-item>
+    <ion-label>PDP</ion-label>
+    <ion-radio slot="start" value="PDP"></ion-radio>
+  </ion-item>
+</ion-col>
+
+<ion-col size="6">
+  <ion-item>
+    <ion-label>Suspect</ion-label>
+    <ion-radio slot="start" value="Suspect"></ion-radio>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-item>
+  <ion-label position="stacked" class="item item-input">12. Orang lainnya dengan status ODP? (pisahkan dengan koma)<span class="required" *ngIf="type != 'sent'">*</span></ion-label>
+  <ion-input type="text" placeholder="Orang lainnya dengan status ODP? (pisahkan dengan koma)"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="stacked" class="item item-input">13. Orang lainnya dengan status ODP? (pisahkan dengan koma)<span class="required" *ngIf="type != 'sent'">*</span></ion-label>
+  <ion-input type="text" placeholder="Orang lainnya dengan status ODP? (pisahkan dengan koma)"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="stacked" class="item item-input">14. Orang lainnya dengan status ODP? (pisahkan dengan koma)<span class="required" *ngIf="type != 'sent'">*</span></ion-label>
+  <ion-input type="text" placeholder="Orang lainnya dengan status ODP? (pisahkan dengan koma)"></ion-input>
+</ion-item> -->
+
+<!-- <ion-list lines="none">
+  <ion-list-header>
+    <ion-label position="stacked" class="text-transform: capitalize;">15. Pernyataan<span class="required" *ngIf="type != 'sent'">*</span></ion-label>
+  </ion-list-header>
+    <ion-item>
+      <ion-checkbox style="margin-right: 2vh;"></ion-checkbox>
+    
+  </ion-item>
+</ion-list>
+
+ 
+  <div class="button-action" *ngIf="type != 'sent'">
+    <ion-button type="submit" expand="block">Simpan & Kirim</ion-button>
+  </div> -->
+</form>

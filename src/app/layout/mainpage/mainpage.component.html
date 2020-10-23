@@ -1,0 +1,37 @@
+<ion-menu side="start" menuId="first">
+  <ion-content>
+    <div class="header-content">
+      <img class="bg-img" src="assets/img/background.jpg" />
+      <div class="header-detail">
+        <img
+          (click)="navigate('profile')"
+          src="{{ foto }}"
+          onerror="this.src='assets/img/default-user.png'"
+        />
+        <h5>{{ data_user.full_name }}</h5>
+        <small>{{ data_user.email }}</small>
+      </div>
+    </div>
+    <ion-list>
+      <ion-item (click)="nav('/beranda')" style="cursor: pointer;">
+        <ion-icon slot="start" [name]="'home'"></ion-icon>
+        <ion-label>
+          Beranda
+        </ion-label>
+      </ion-item>
+      <ion-item *ngFor="let p of appPages" routerLink="{{ p.url }}" routerDirection="root">
+        <ion-icon slot="start" [name]="p.icon"></ion-icon>
+        <ion-label>
+          {{ p.title }}
+        </ion-label>
+      </ion-item>
+      <ion-item (click)="navigate('/logout')" style="cursor: pointer;">
+        <ion-icon slot="start" [name]="'close-circle'"></ion-icon>
+        <ion-label>
+          Keluar
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-router-outlet main></ion-router-outlet>

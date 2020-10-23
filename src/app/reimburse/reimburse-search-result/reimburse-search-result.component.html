@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" slot="start"> <ion-icon name="arrow-back"></ion-icon> </ion-button>
+    </ion-buttons>
+    <ion-title>Reimburse</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment mode="md" value="{{ type_segment }}" [(ngModel)]="type_segment">
+      <ion-segment-button (ionSelect)="segmentChanged('draft')" value="draft">
+        <div class="segment-content">
+          <div class="badge-count">{{ total_draft }}</div>
+          <ion-icon name="clipboard"></ion-icon>
+          <label>Draft</label>
+        </div>
+      </ion-segment-button>
+      <ion-segment-button (ionSelect)="segmentChanged('sent')" value="sent">
+        <div class="segment-content">
+          <div class="badge-count">{{ total_sent }}</div>
+          <ion-icon name="clipboard"></ion-icon>
+          <label>Terkirim</label>
+        </div>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content-segment" [ngSwitch]="type_segment">
+    <div class="list-sent" *ngSwitchCase="'sent'">
+      <app-list-sent [menu]="'reimburse'" [data]="list_sent"></app-list-sent>
+      <div *ngIf="loading_spinner" class="loading-spinner">
+        <ion-spinner color="primary" name="crescent"></ion-spinner>
+      </div>
+      <div
+        *ngIf="load_more_sent && !loading_spinner && list_sent.length >= 10"
+        class="load-more"
+        (click)="loadMoreData()"
+      >
+        Tampilkan lebih banyak
+      </div>
+    </div>
+
+    <div class="list-draft" *ngSwitchCase="'draft'">
+      <app-list-draft [type]="'reimburse'" [data]="list_draft"></app-list-draft>
+    </div>
+  </div>
+</ion-content>

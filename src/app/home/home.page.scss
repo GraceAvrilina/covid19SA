@@ -1,0 +1,427 @@
+@media only screen and (min-width: 320px) {
+  // ion-content{
+  //   --offset-bottom: 23vh;
+  // }
+  .login-content {
+  // background-image: url('../../assets/img/bg2.png');
+  height: 100%;
+  .bgnya{
+    // background-image: url('/assets/img/bgr.png');
+    background-repeat: round;
+    opacity: 0.7;
+    z-index: -1;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .lgn{
+    // padding-top: 5vh;
+    position: absolute;
+    top: 0;
+  
+  .welcome-card ion-img {
+    max-height: 35vh;
+    overflow: hidden;
+  }
+  
+  .logo{
+    width: 25%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 25px;
+  }
+  
+  .dot {
+    height: 12px;
+    width: 12px;
+    // background-color: #6AD321;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .btnstatus{
+    padding: 5px;
+    border: 0.5px groove;
+    border-radius: 10px;
+    // background-color: transparent;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: 11px;
+    border: 3px solid white;
+  }
+  
+  .btnmenu{
+    padding: 0px;
+    border-radius: 19px;
+    background-color: black;
+    display: block;
+    width: 63%;
+    opacity: 0.7;
+    margin-left: auto;
+    margin-right: 11px;
+    border: 3px solid white;
+    margin-top: -7px;
+  }
+  
+  .btnmenull{
+    padding: 0px;
+    border-radius: 19px;
+    background-color: black;
+    display: block;
+    width: 47%;
+    opacity: 0.7;
+    margin-left: auto;
+    margin-right: 11px;
+    border: 3px solid white;
+    margin-top: -7px
+  }
+  
+
+.titlebtn{
+  margin-top: 10px;
+  margin-bottom: 4px;
+  text-align: left;
+  color: white;
+  font-weight: 900;
+  font-size: small;
+  padding-left: 12px;
+  padding-right: 5px;
+}
+
+.detailbtn{
+  margin-top: 1px;
+  margin-bottom: 10px;
+  text-align: left;
+  color: white;
+  padding-left: 14px;
+  padding-right: 14px;
+  float: left;
+  font-size: x-small;
+}
+
+.btnstatus:focus{
+  outline: 0;
+}
+.menu-content {
+  margin-top: 35px;
+  padding-bottom: 55px;
+  h4.subtitle {
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: #464545;
+    padding-left: 20px;
+    margin-top: -13px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: minmax(20px, 8rem) auto;
+  }
+  h4:after {
+    content: '';
+    border-top: 1px solid #464545;
+    margin-top: 5px;
+  }
+  .line-title {
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    background: #464545;
+  }
+  .menu-item {
+    // padding-bottom: 25px;
+    img {
+      margin: 0 auto;
+      display: block;
+      width: 6rem;
+      height: 6rem;
+      &.reimburse-icon {
+        width: 6rem;
+      }
+    }
+    small {
+      text-align: center;
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0px;
+    }
+  }
+}
+.badge-total {
+  position: relative;
+  font-size: 0.6rem;
+  font-weight: bold;
+  background: red;
+  color: #fff;
+  border: 2px solid #ffffff;
+  padding: 2px 4px;
+  border-radius: 7px;
+  left: 30px;
+  top: 25px;
+  width: 25px;
+  margin: 0 auto;
+  text-align: center;
+}
+ion-title {
+  .title-md {
+    text-align: center;
+  }
+}
+.img-header {
+  margin-left: -50px;
+  img.logo-img {
+    width: 6rem;
+    margin: 0 auto;
+    display: block;
+  }
+}
+.bg-imgblur {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  top: 35%;
+  .logo-img-blur {
+    opacity: 0.05;
+    margin: 0 auto;
+    display: block;
+    width: 15rem;
+  }
+}
+
+h2 span {
+  background-color: white;
+  padding-right: 10px;
+}
+
+h2:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.5em;
+  border-top: 1px solid black;
+  z-index: -1;
+}
+  }
+}
+}
+
+@media only screen and (min-width: 1248px)  and (max-width: 1919px) {
+  .login-content {
+    // background-image: url('../../assets/img/bg2.png');
+    height: 100%;
+    .bgnya{
+      // background-image: url('../../assets/img/bg.png');
+      background-repeat: round;
+      opacity: 0.7;
+      z-index: -1;
+      display: block;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 130%;
+    }
+    
+  .lgn{
+    padding-top: 5vh;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  
+  .welcome-card ion-img {
+    max-height: 35vh;
+    overflow: hidden;
+  }
+  
+  .logo{
+    width: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .dot {
+    height: 12px;
+    width: 12px;
+    // background-color: #6AD321;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .btnstatus{
+    padding: 5px;
+    border: 0.5px groove;
+    border-radius: 10px;
+    // background-color: transparent;
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: 20px;
+    border: 3px solid white;
+  }
+  
+  .btnmenu{
+    padding: 0px;
+    border-radius: 19px;
+    background-color: black;
+    display: block;
+    width: 40%;
+    opacity: 0.7;
+    margin-left: auto;
+    margin-right: 20px;
+    border: 4px solid white;
+  }
+  
+  .btnmenull{
+    padding: 0px;
+    border-radius: 19px;
+    background-color: black;
+    display: block;
+    width: 33%;
+    opacity: 0.7;
+    margin-left: auto;
+    margin-right: 20px;
+    border: 4px solid white;
+  }
+  .titlebtn{
+    margin-top: 10px;
+    margin-bottom: 4px;
+    text-align: left;
+    color: white;
+    font-weight: 900;
+    font-size: small;
+    padding-left: 12px;
+    padding-right: 5px;
+  }
+  
+  .detailbtn{
+    margin-top: 1px;
+    margin-bottom: 10px;
+    text-align: left;
+    color: white;
+    padding-left: 14px;
+    padding-right: 14px;
+    float: left;
+    font-size: x-small;
+  }
+  
+  .btnstatus:focus{
+    outline: 0;
+  }
+  .menu-content {
+    margin-top: 35px;
+    padding-bottom: 55px;
+    h4.subtitle {
+      text-align: left;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      color: #464545;
+      padding-left: 20px;
+      margin-top: -13px;
+      display: grid;
+      width: 100%;
+      grid-template-columns: minmax(20px, 8rem) auto;
+    }
+    h4:after {
+      content: '';
+      border-top: 1px solid #464545;
+      margin-top: 5px;
+    }
+    .line-title {
+      display: inline-block;
+      width: 100%;
+      height: 1px;
+      background: #464545;
+    }
+    .menu-item {
+      // padding-bottom: 25px;
+      img {
+        margin: 0 auto;
+        display: block;
+        width: 6rem;
+        height: 6rem;
+        &.reimburse-icon {
+          width: 6rem;
+        }
+      }
+      small {
+        text-align: center;
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0px;
+      }
+    }
+  }
+  .badge-total {
+    position: relative;
+    font-size: 0.6rem;
+    font-weight: bold;
+    background: red;
+    color: #fff;
+    border: 2px solid #ffffff;
+    padding: 2px 4px;
+    border-radius: 7px;
+    left: 30px;
+    top: 25px;
+    width: 25px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  ion-title {
+    .title-md {
+      text-align: center;
+    }
+  }
+  .img-header {
+    margin-left: -50px;
+    img.logo-img {
+      width: 6rem;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+  .bg-imgblur {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    top: 35%;
+    .logo-img-blur {
+      opacity: 0.05;
+      margin: 0 auto;
+      display: block;
+      width: 15rem;
+    }
+  }
+  
+  h2 span {
+    background-color: white;
+    padding-right: 10px;
+  }
+  
+  h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0.5em;
+    border-top: 1px solid black;
+    z-index: -1;
+  }
+    }
+  }
+  }

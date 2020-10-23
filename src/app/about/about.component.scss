@@ -1,0 +1,27 @@
+.version {
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px;
+  font-size: 0.7rem;
+}
+.about-header {
+  img {
+    width: 65%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    margin-top: 50px;
+  }
+  p {
+    text-align: center;
+    font-size: 0.85rem;
+    width: 70%;
+    position: relative;
+    left: 15%;
+    padding-bottom: calc(100% - 9rem);
+  }
+}
+.about-footer {
+  text-align: center;
+  font-size: 0.75rem;
+}

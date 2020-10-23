@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons (click)="close()" slot="start">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="forgetpass-content">
+    <img src="/assets/img/ebdesk.png" />
+    <div class="title">Registrasi Berhasil!<br/> Silahkan cek email anda untuk verfikasi</div>
+    <ion-button (click)="close()" expand="block" color="success">Kembali </ion-button>
+    <!-- <ion-input type="email" name="email" [(ngModel)]="email" placeholder="Masukan email anda"></ion-input>
+    <button class="custom-btn" shape="round" (click)="send()">KIRIM</button> -->
+  </div>
+</ion-content>

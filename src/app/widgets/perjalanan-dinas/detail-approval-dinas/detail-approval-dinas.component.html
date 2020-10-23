@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons (click)="close()" slot="start">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-buttons>
+    <ion-title>Perjalanan Dinas</ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button
+        *ngIf="data.status == 'waiting' || data.status == 'rejected'"
+        color="dark"
+        (click)="changeStatus('approved')"
+      >
+        <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+      </ion-button>
+      <ion-button
+        color="danger"
+        *ngIf="data.status == 'waiting' || data.status == 'approved'"
+        (click)="changeStatus('rejected')"
+      >
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="form-input-custom">
+    <ion-item>
+      <ion-label class="inline-label">Nomor Laporan : </ion-label>
+      <small class="label-only">{{ data.nomor_laporan }}</small>
+    </ion-item>
+    <ion-item>
+      <ion-label class="inline-label">Nama Aktivitas</ion-label>
+      <small class="label-only">{{ data.aktivitas }}</small>
+    </ion-item>
+    <ion-item>
+      <ion-label class="inline-label">Jenis Aktivitas</ion-label>
+      <small class="label-only">{{ data.id_jenis_activity.name }}</small>
+    </ion-item>
+    <ion-item>
+      <ion-label class="inline-label">Bendera Aktivitas</ion-label>
+      <small class="label-only">{{ data.id_bendera.name }}</small>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="inline-label">Nama Klien</ion-label>
+      <small class="label-only">{{ data.klien }}</small>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="inline-label">Lokasi Dinas</ion-label>
+      <small class="label-only">{{ data.lokasi }}</small>
+    </ion-item>
+    <div class="divider"></div>
+    <ion-item>
+      <ion-label class="inline-label">Cash Advance</ion-label>
+      <small class="label-only">{{ data.cash_advance | formatRupiah }}</small>
+    </ion-item>
+
+    <!-- <ion-item>
+      <ion-label class="inline-label">Pemakaian</ion-label>
+      <small *ngIf="data.pemakaian_koreksi == null" class="label-only">{{ data.pemakaian | formatRupiah }}</small>
+      <small *ngIf="data.pemakaian_koreksi != null" class="label-only">{{
+        data.pemakaian_koreksi | formatRupiah
+      }}</small>
+    </ion-item>
+    <ion-item>
+      <ion-label class="inline-label">Sisa</ion-label>
+      <small *ngIf="data.sisa_koreksi == null" class="label-only">{{ data.sisa | formatRupiah }}</small>
+      <small *ngIf="data.sisa_koreksi != null" class="label-only">{{ data.sisa_koreksi | formatRupiah }}</small>
+    </ion-item> -->
+
+    <ion-item>
+      <ion-label class="inline-label">Pemakaian : </ion-label>
+      <div *ngIf="data.pemakaian_koreksi != null && data.pemakaian_koreksi != data.pemakaian">
+        <small class="label-only price-final">{{ data.pemakaian_koreksi | formatRupiah }} /</small>
+        <small class="label-only correction">{{ data.pemakaian | formatRupiah }}</small>
+      </div>
+
+      <div *ngIf="data.pemakaian_koreksi == null || data.pemakaian_koreksi == data.pemakaian">
+        <small class="label-only">{{ data.pemakaian | formatRupiah }}</small>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label class="inline-label">Kelebihan/Kekurangan : </ion-label>
+      <div *ngIf="data.sisa_koreksi != null && data.sisa_koreksi != data.sisa">
+        <small class="label-only price-final">{{ data.sisa_koreksi | formatRupiah }} /</small>
+        <small class="label-only correction">{{ data.sisa | formatRupiah }}</small>
+      </div>
+
+      <div *ngIf="data.sisa_koreksi == null || data.sisa_koreksi == data.sisa">
+        <small class="label-only">{{ data.sisa | formatRupiah }}</small>
+      </div>
+    </ion-item>
+
+    <ion-card *ngFor="let item of data.dinas_item; let idx = index">
+      <ion-card-content (click)="showModalCorrection(item, idx)">
+        <div class="title">
+          {{ item.keterangan }}
+          <div class="date">{{ item.tanggal_dinas | formatTanggal }}</div>
+        </div>
+        <div class="detail">
+          <h5>
+            {{ item.jumlah_koreksi == null || item.jumlah_koreksi == item.jumlah ? item.jumlah : item.jumlah_koreksi }}
+            {{ item.unit_koreksi == null || item.unit_koreksi == item.unit ? item.unit : item.unit_koreksi }}
+          </h5>
+          <p *ngIf="item.harga_unit_koreksi == null">Harga per unit {{ item.harga_unit | formatRupiah }}</p>
+          <p *ngIf="item.harga_unit_koreksi != null">Harga per unit {{ item.harga_unit_koreksi | formatRupiah }}</p>
+        </div>
+        <div *ngIf="item.harga_total_koreksi != null" class="total-price-correction">
+          {{ item.harga_total | formatRupiah }}
+        </div>
+        <div *ngIf="item.harga_total_koreksi != null" class="total-price">
+          {{ item.harga_total_koreksi | formatRupiah }}
+        </div>
+        <div *ngIf="item.harga_total_koreksi == null" class="total-price">{{ item.harga_total | formatRupiah }}</div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

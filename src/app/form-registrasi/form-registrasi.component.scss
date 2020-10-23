@@ -1,0 +1,42 @@
+.login-content {
+    // background-image: url('../../assets/img/bg2.png');
+    height: 100%;
+    .bgnya{
+      opacity: 0.3;
+      z-index: -1;
+      display: block;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .reg-content{
+        position: absolute;
+        top: 30px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+
+    .passwordIcon{
+      font-size: 1.7rem !important;
+      position: absolute;
+      top: 17px !important;
+      margin: 0 auto !important;
+      z-index: 9;
+      right: 4vw;
+   }
+    
+    ion-card{
+        padding: 15px; 
+        --background: white; 
+        border-radius: 7%;
+    }
+    ion-button{
+        --border-radius: 25px;
+        margin-top: 5vh;
+      }
+}

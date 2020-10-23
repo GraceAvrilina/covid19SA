@@ -1,0 +1,42 @@
+<div id="list-draft" *ngIf="type == 'transportation'">
+  <ion-list>
+    <ion-item *ngFor="let item of data" (click)="navigate(item)">
+      <div class="top-item">
+        <small
+          ><b>{{ item.proyek }} - {{ item.klien }}</b></small
+        ><br />
+        <small>{{ item.type_transport_name }} - {{ item.jenis_bayar }}</small>
+        <div class="bottom-item">
+          <div class="price">{{ item.custom_nominal }}</div>
+          <div class="item-date">{{ item.waktu_buat }}</div>
+        </div>
+      </div>
+      <!-- <ion-col size="12"> -->
+      <!-- <small class="ion-float-left">Rp 100.000</small>
+          <small class="ion-float-right">03/05/2019</small> -->
+
+      <!-- <div class="item-note" slot="end"></div> -->
+    </ion-item>
+  </ion-list>
+</div>
+<div id="list-draft" *ngIf="type == 'reimburse'">
+  <ion-list>
+    <ion-item *ngFor="let item of data" (click)="navigate(item)">
+      <div class="top-item">
+        <small
+          ><b>{{ item.proyek }} - {{ item.klien }}</b></small
+        ><br />
+        <small>{{ item.type_reimburse_name }}</small>
+        <div class="bottom-item">
+          <div class="price">{{ item.custom_nominal }}</div>
+          <div class="item-date">{{ item.waktu_buat }}</div>
+        </div>
+      </div>
+      <!-- <ion-col size="12"> -->
+      <!-- <small class="ion-float-left">Rp 100.000</small>
+            <small class="ion-float-right">03/05/2019</small> -->
+
+      <!-- <div class="item-note" slot="end"></div> -->
+    </ion-item>
+  </ion-list>
+</div>

@@ -1,0 +1,49 @@
+.maintenance-page {
+  background: url('/assets/img/maintenance.png');
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+.maintenance-title {
+  padding-left: 15px;
+  img {
+    width: 35%;
+    margin-top: 20px;
+  }
+  h1 {
+    font-weight: 600;
+    font-size: 15px;
+  }
+  h4 {
+    margin-top: -5px;
+    font-size: 13px;
+  }
+}
+.action-button {
+  a {
+    color: #000;
+    text-decoration: none !important;
+  }
+  position: absolute;
+  bottom: 45px;
+  width: 100%;
+  text-align: center;
+  .btn-link {
+    // display: inline;
+    font-size: 2.8vw;
+    background: #fff;
+    // padding: 20px;
+    margin-right: 10px;
+    border-radius: 10px;
+    height: 50px;
+    line-height: 0px;
+    background: rgba(0, 0, 0, 0.72);
+    color: #fff;
+    box-shadow: 1px 1px 4px #000;
+    span {
+      font-weight: 600;
+    }
+  }
+}

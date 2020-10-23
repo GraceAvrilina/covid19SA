@@ -1,0 +1,143 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons (click)="close()" slot="start">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-buttons>
+    <ion-title>Approval</ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button
+        color="dark"
+        (click)="changeStatus('approved')"
+        *ngIf="data.status == 'waiting' || data.status == 'rejected'"
+      >
+        <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+      </ion-button>
+      <ion-button
+        color="danger"
+        *ngIf="data.status == 'waiting' || data.status == 'approved'"
+        (click)="changeStatus('rejected')"
+      >
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form>
+    <ion-item>
+      <ion-label position="stacked">Nomor Laporan</ion-label>
+      <ion-input readonly [(ngModel)]="data.nomor_laporan" name="nomor_laporan"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Nama Aktivitas </ion-label>
+      <ion-input readonly [(ngModel)]="data.proyek" name="project"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Jenis Aktivitas </ion-label>
+      <ion-input readonly [(ngModel)]="data.id_jenis_activity.name" name="jenis_aktivitas"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Bendera Aktivitas</ion-label>
+      <ion-input readonly [(ngModel)]="data.id_bendera.name" name="bendera_aktivitas"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Nama Klien </ion-label>
+      <ion-input readonly [(ngModel)]="data.klien" name="klien"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Pemberi Tugas </ion-label>
+      <ion-input readonly [(ngModel)]="data.pemberi_tugas.first_name" name="pemberi_tugas"></ion-input>
+    </ion-item>
+
+    <!-- input transportasi tambahan -->
+    <div *ngIf="data.jenis_laporan == 'transportasi'">
+      <ion-item>
+        <ion-label position="stacked">Jenis Transportasi </ion-label>
+        <ion-input readonly [(ngModel)]="data.id_jenis.name" name="jenis_transport"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Jenis Pembayaran </ion-label>
+        <ion-input readonly [(ngModel)]="data.jenis_bayar.name" name="jenis_bayar"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Kode Voucher </ion-label>
+        <ion-input readonly [(ngModel)]="data.kode_voucher" name="kode_voucher"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Nominal </ion-label>
+        <ion-input readonly [(ngModel)]="data.nominal" name="nominal"></ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label autofocus="true" position="stacked">Dari </ion-label>
+            <ion-input readonly [(ngModel)]="data.asal" name="dari"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label autofocus="true" position="stacked">Ke </ion-label>
+            <ion-input readonly [(ngModel)]="data.tujuan" name="ke"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-item>
+        <ion-label position="stacked">Waktu Berangkat </ion-label>
+        <ion-input readonly [(ngModel)]="data.waktu_mulai" name="waktu_berangkat"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Waktu Tiba </ion-label>
+        <ion-input readonly [(ngModel)]="data.waktu_berakhir" name="waktu_tiba"></ion-input>
+      </ion-item>
+    </div>
+    <!-- end -->
+
+    <!-- input-reimburse -->
+    <div *ngIf="data.jenis_laporan == 'reimburse'">
+      <ion-item>
+        <ion-label position="stacked">Jenis Reimburse </ion-label>
+        <ion-input readonly [(ngModel)]="data.id_jenis.name" name="jenis_bayar"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Nominal </ion-label>
+        <ion-input readonly [(ngModel)]="data.nominal" name="nominal"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Waktu Kejadian </ion-label>
+        <ion-input readonly [(ngModel)]="data.waktu_kejadian" name="waktu_kejadian"></ion-input>
+      </ion-item>
+    </div>
+    <!-- end -->
+    <ion-item>
+      <ion-label position="stacked">Keterangan </ion-label>
+      <ion-textarea
+        readonly
+        [(ngModel)]="data.keterangan"
+        placeholder="{{ data.id_jenis.placeholder_keterangan }}"
+        name="keterangan"
+      >
+      </ion-textarea>
+    </ion-item>
+
+    <div class="photo-upload">
+      <label>Media </label>
+      <div class="list-imgupload scrolling-wrapper">
+        <div (click)="prevImage()" *ngFor="let img of data.photo; let i = index" class="item-img">
+          <img src="{{ img }}" />
+        </div>
+      </div>
+    </div>
+  </form>
+</ion-content>

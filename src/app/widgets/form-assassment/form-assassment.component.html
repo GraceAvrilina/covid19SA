@@ -1,0 +1,181 @@
+<form #formData="ngForm" >
+<div *ngFor="let item of datanya">
+  <h6 *ngIf="item.input_type == 'separator'" class="textstyle"> {{item.title_text}} </h6>
+
+  <ion-list lines="none" *ngIf="item.input_type == 'radio'">
+    <ion-radio-group>
+
+  <ion-list-header>
+    <ion-label> {{item.title_text}} <span class="required">*</span></ion-label>
+  </ion-list-header>
+
+  <div style="margin-left: 16px;">
+    <div *ngFor="let isi of item.list" style="width: 47%; display: inline-block;">
+      <ion-item >
+        <ion-label> {{isi.text}} </ion-label>
+        <ion-radio slot="start" color="success" value="{{isi.text}}"></ion-radio>
+      </ion-item>
+    </div>
+  </div>
+
+</ion-radio-group>
+</ion-list>
+
+<!-- <ion-list lines="none">
+  <ion-radio-group value="tidak">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;">2. Sesak Nafas? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row style="height: 9%;">
+    <ion-col size="6">
+      <ion-item>
+      <ion-label>Ya</ion-label>
+      <ion-radio slot="start" value="ya"></ion-radio>
+    </ion-item>
+    </ion-col>
+
+
+    <ion-col size="6">
+    <ion-item>
+      <ion-label>Tidak</ion-label>
+      <ion-radio slot="start" value="tidak"></ion-radio>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none">
+  <ion-radio-group value="tidak">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;">3. Batuk kering tanpa radang tenggorokan? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row style="height: 9%;">
+    <ion-col size="6">
+      <ion-item>
+      <ion-label>Ya</ion-label>
+      <ion-radio slot="start" value="ya"></ion-radio>
+    </ion-item>
+    </ion-col>
+
+
+    <ion-col size="6">
+    <ion-item>
+      <ion-label>Tidak</ion-label>
+      <ion-radio slot="start" value="tidak"></ion-radio>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none">
+  <ion-radio-group value="tidak">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;">4. Lemah, letih, lesu? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row style="height: 9%;">
+    <ion-col size="6">
+      <ion-item>
+      <ion-label>Ya</ion-label>
+      <ion-radio slot="start" value="ya"></ion-radio>
+    </ion-item>
+    </ion-col>
+
+
+    <ion-col size="6">
+    <ion-item>
+      <ion-label>Tidak</ion-label>
+      <ion-radio slot="start" value="tidak"></ion-radio>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none">
+  <ion-radio-group value="tidak">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;">5. Radang tenggorokan? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row style="height: 9%;">
+    <ion-col size="6">
+      <ion-item>
+      <ion-label>Ya</ion-label>
+      <ion-radio slot="start" value="ya"></ion-radio>
+    </ion-item>
+    </ion-col>
+
+
+    <ion-col size="6">
+    <ion-item>
+      <ion-label>Tidak</ion-label>
+      <ion-radio slot="start" value="tidak"></ion-radio>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none">
+  <ion-radio-group value="tidak">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;">6. Pilek? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+
+<ion-row style="height: 9%;">
+    <ion-col size="6">
+      <ion-item>
+      <ion-label>Ya</ion-label>
+      <ion-radio slot="start" value="ya"></ion-radio>
+    </ion-item>
+    </ion-col>
+
+
+    <ion-col size="6">
+    <ion-item>
+      <ion-label>Tidak</ion-label>
+      <ion-radio slot="start" value="tidak"></ion-radio>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list> -->
+
+<ion-item lines="none" *ngIf="item.input_type=='text'">
+  <ion-label> {{item.title_text}} <span class="required">*</span></ion-label>
+  <ion-input *ngIf="type != 'sent'"  name="klien" placeholder="{{item.title_text}}"></ion-input>
+</ion-item>
+
+<ion-item lines="none" *ngIf="item.input_type=='checkbox'">
+  <ion-label> {{item.title_text}} <span class="required">*</span></ion-label>
+  <div>
+      <div style="display: inline-block; width: 22%; position: relative; left: 13px;">
+      <ion-checkbox color="dark" style="--size: 21px;"></ion-checkbox></div>
+  <div style="display: inline-block; width: 80%;
+  font-size: 13px; margin-left: -24px;"> {{item.list[0].text}} </div>
+</div>
+</ion-item>
+
+  <div class="button-action" *ngIf="item.input_type == 'submit'">
+    <ion-button type="submit" expand="block">Simpan & Kirim</ion-button>
+
+  </div>
+  <!-- </div> -->
+</div>
+</form>

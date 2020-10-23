@@ -1,0 +1,69 @@
+<div id="list-sent" *ngIf="menu == 'transport'">
+  <ion-list>
+    <ion-item text-wrap no-lines *ngFor="let item of data" (click)="navigate(item)">
+      <div
+        class="status"
+        [class.waiting]="item.status == 'waiting'"
+        [class.approved]="item.status == 'approved'"
+        [class.done]="item.status == 'done'"
+        *ngIf="item.status != ''"
+      >
+        {{ item.status_text }}
+      </div>
+      <div class="top-item">
+        <small class="title"
+          ><b>{{ item.proyek }} - {{ item.klien }}</b></small
+        ><br />
+        <small>{{ item.id_jenis.name }} - {{ item.jenis_bayar.name }}</small>
+        <div class="bottom-item" *ngIf="item.nominal != item.nominal_koreksi && item.nominal_koreksi != null">
+          <div class="price" [class.correction]="item.custom_nominal_koreksi != 0">{{ item.custom_nominal }}</div>
+          <div class="price-final" *ngIf="item.custom_nominal_koreksi != 0">
+            {{ item.custom_nominal_koreksi }} <ion-icon class="red-font" name="information-circle-outline"></ion-icon>
+          </div>
+          <div class="item-date">
+            {{ item.custom_date }}
+          </div>
+        </div>
+
+        <div class="bottom-item" *ngIf="item.nominal == item.nominal_koreksi || item.nominal_koreksi == null">
+          <div class="price">{{ item.custom_nominal }}</div>
+          <div class="item-date">{{ item.custom_date }}</div>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</div>
+
+<div id="list-sent-reimburse" *ngIf="menu == 'reimburse'">
+  <ion-list>
+    <ion-item text-wrap no-lines *ngFor="let item of data" (click)="navigate(item)">
+      <div
+        class="status"
+        [class.waiting]="item.status == 'waiting'"
+        [class.approved]="item.status == 'approved'"
+        [class.done]="item.status == 'done'"
+        *ngIf="item.status != ''"
+      >
+        {{ item.status_text }}
+      </div>
+      <div class="top-item">
+        <small class="title"
+          ><b>{{ item.proyek }} - {{ item.klien }}</b></small
+        ><br />
+        <small>{{ item.id_jenis.name }}</small>
+        <div class="bottom-item" *ngIf="item.nominal != item.nominal_koreksi && item.nominal_koreksi != null">
+          <div class="price" [class.correction]="item.custom_nominal_koreksi != 0">{{ item.custom_nominal }}</div>
+          <div class="price-final" *ngIf="item.custom_nominal_koreksi != 0">
+            {{ item.custom_nominal_koreksi }} <ion-icon class="red-font" name="information-circle-outline"></ion-icon>
+          </div>
+          <div class="item-date">{{ item.custom_date }}</div>
+        </div>
+
+        <div class="bottom-item" *ngIf="item.nominal == item.nominal_koreksi || item.nominal_koreksi == null">
+          <div class="price">{{ item.custom_nominal }}</div>
+          <div class="item-date">{{ item.custom_date }}</div>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</div>

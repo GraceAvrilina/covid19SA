@@ -1,0 +1,190 @@
+<div class="form-input-custom">
+  <div [class.hidden]="type == 'sent'" class="info-input-form">
+    <ion-row>
+      <ion-col size="2"
+        ><div class="info-icon"><ion-icon name="information-circle-outline"></ion-icon></div
+      ></ion-col>
+      <ion-col size="10"
+        ><div class="info-text">
+          {{ info_form }}
+        </div></ion-col
+      >
+    </ion-row>
+  </div>
+  <ion-item-group>
+    <ion-item *ngIf="type == 'sent'">
+      <ion-label class="inline-label">Nomor Laporan : </ion-label>
+      <small class="label-only">{{ oldData.nomor_laporan }}</small>
+    </ion-item>
+
+    <ion-item (click)="searchActivityName()">
+      <ion-label class="inline-label">Aktivitas <span class="required" *ngIf="type != 'sent'">* </span> : </ion-label>
+      <small class="label-only">{{ data.aktivitas }}</small>
+    </ion-item>
+
+    <ion-item (click)="searchTypeActivity()">
+      <ion-label class="inline-label"
+        >Jenis Aktivitas <span class="required" *ngIf="type != 'sent'">* </span> :
+      </ion-label>
+      <small class="label-only">{{ data.jenis_aktivitas.name }}</small>
+    </ion-item>
+
+    <ion-item *ngIf="data.jenis_aktivitas.is_specify_bendera == 1">
+      <ion-label class="inline-label">Bendera Aktivitas : </ion-label>
+      <ion-select
+        *ngIf="type != 'sent'"
+        [(ngModel)]="data.bendera_aktivitas"
+        name="bendera_aktivitas"
+        placeholder=""
+        interface="popover"
+      >
+        <ion-select-option *ngFor="let t of listBendera" [value]="t.id">{{ t.name }}</ion-select-option>
+      </ion-select>
+      <small class="label-only" *ngIf="type == 'sent'">{{ oldData.id_bendera.name }}</small>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="inline-label">Nama Klien <span class="required" *ngIf="type != 'sent'">* </span> : </ion-label>
+      <ion-input *ngIf="type != 'sent'" type="text" [(ngModel)]="data.nama_klien" placeholder=""></ion-input>
+      <small class="label-only" *ngIf="type == 'sent'">{{ data.nama_klien }}</small>
+    </ion-item>
+
+    <ion-item (click)="showModalLeader()">
+      <ion-label class="inline-label"
+        >Pemberi Tugas <span class="required" *ngIf="type != 'sent'">* </span> :
+      </ion-label>
+      <small class="label-only">{{ leader.name }}</small>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="inline-label"
+        >Lokasi Dinas <span class="required" *ngIf="type != 'sent'">* </span> :
+      </ion-label>
+      <ion-input *ngIf="type != 'sent'" type="text" [(ngModel)]="data.lokasi_dinas" placeholder=""></ion-input>
+      <small *ngIf="type == 'sent'" class="label-only">{{ data.lokasi_dinas }}</small>
+    </ion-item>
+
+    <ion-grid style="margin-left: -8px">
+      <ion-row>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="stacked" style="font-size: 18px;"
+              ><ion-icon name="calendar"></ion-icon> Berangkat <span class="required" *ngIf="type != 'sent'">* </span> :
+            </ion-label>
+            <!-- <ion-datetime
+              *ngIf="type != 'sent'"
+              placeholder=""
+              [(ngModel)]="data.tanggal_berangkat"
+              name="tgl_mulai_dinas"
+              [min]="minDate_report"
+              display-format="DD-MM-YYYY"
+              (ionChange)="dateChange()"
+            ></ion-datetime> -->
+            <small (click)="openCalendar()" *ngIf="type != 'sent'" class="label-date">{{
+              data.tanggal_berangkat == '' ? 'Pilih Tanggal' : data.str_tanggal_berangkat
+            }}</small>
+            <small *ngIf="type == 'sent'" class="label-date">{{ data.tanggal_berangkat }}</small>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="stacked" style="font-size: 18px;"
+              ><ion-icon name="calendar"></ion-icon> Kembali <span class="required" *ngIf="type != 'sent'">* </span> :
+            </ion-label>
+            <!-- <ion-datetime
+              *ngIf="type != 'sent'"
+              placeholder=""
+              [(ngModel)]="data.tanggal_kembali"
+              name="tgl_berakhir_dinas"
+              [min]="minDate_report"
+              display-format="DD-MM-YYYY"
+              (ionChange)="dateChange()"
+            ></ion-datetime> -->
+            <small (click)="openCalendar()" *ngIf="type != 'sent'" class="label-date">{{
+              data.tanggal_kembali == '' ? 'Pilih Tanggal' : data.str_tanggal_kembali
+            }}</small>
+            <small *ngIf="type == 'sent'" class="label-date">{{ data.tanggal_kembali }}</small>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item-group>
+
+  <ion-item-group *ngIf="type != 'sent'">
+    <ion-item>
+      <ion-label class="inline-label">Cash Advance : </ion-label>
+      <ion-input type="number" (ionChange)="calculate()" placeholder="0" [(ngModel)]="cash_advance"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="inline-label">Pemakaian : </ion-label>
+      <ion-input type="text" readonly placeholder="" [(ngModel)]="pemakaian"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="inline-label">Kelebihan/Kekurangan : </ion-label>
+      <ion-input type="text" readonly placeholder="" [(ngModel)]="sisa"></ion-input>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group *ngIf="type == 'sent'">
+    <ion-item>
+      <ion-label class="inline-label">Cash Advance : </ion-label>
+      <div>
+        <small class="label-only">{{ cash_advance | formatRupiah }}</small>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label class="inline-label">Pemakaian : </ion-label>
+      <div *ngIf="oldData.pemakaian_koreksi != null && oldData.pemakaian_koreksi != oldData.pemakaian">
+        <small class="label-only price-final">{{ pemakaian | formatRupiah }}</small>
+        /
+        <small class="label-only correction">{{ oldData.pemakaian | formatRupiah }}</small>
+      </div>
+      <div *ngIf="oldData.pemakaian_koreksi == oldData.pemakaian || oldData.pemakaian_koreksi == null">
+        <small class="label-only">{{ oldData.pemakaian | formatRupiah }}</small>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label class="inline-label">Kelebihan/Kekurangan : </ion-label>
+      <div *ngIf="oldData.sisa_koreksi != null && oldData.sisa_koreksi != oldData.sisa">
+        <small class="label-only price-final">{{ sisa | formatRupiah }} /</small>
+        <small class="label-only correction">{{ oldData.sisa | formatRupiah }}</small>
+      </div>
+
+      <div *ngIf="oldData.sisa_koreksi == null || oldData.sisa_koreksi == oldData.sisa">
+        <small class="label-only">{{ sisa | formatRupiah }}</small>
+      </div>
+    </ion-item>
+  </ion-item-group>
+</div>
+
+<!-- list biaya perjalanan -->
+<ion-card *ngFor="let item of listBiaya; let idx = index">
+  <ion-card-content (click)="presentActionSheet(item, idx)">
+    <div class="title">
+      {{ item.keterangan }}
+      <div class="date">{{ item.custom_tanggal | formatTanggal }}</div>
+    </div>
+    <div class="detail">
+      <h5>{{ item.jumlah }} {{ item.unit }}</h5>
+      <p>Harga per unit {{ item.harga_unit | formatRupiah }}</p>
+    </div>
+
+    <div *ngIf="item.harga_total_koreksi != null" class="total-price-correction">
+      {{ item.harga_total | formatRupiah }}
+    </div>
+    <div *ngIf="item.harga_total_koreksi != null" class="total-price">
+      {{ item.harga_total_koreksi | formatRupiah }}
+    </div>
+    <div *ngIf="item.harga_total_koreksi == null" class="total-price">{{ item.harga_total | formatRupiah }}</div>
+  </ion-card-content>
+</ion-card>
+
+<div class="button-bar" *ngIf="type != 'sent'">
+  <ion-button *ngIf="type == 'form'" slots="start" color="secondary" size="small" (click)="savetoDraft()"
+    >Simpan</ion-button
+  >
+  <ion-button *ngIf="type == 'draft'" slots="start" color="secondary" size="small" (click)="updateDraft()"
+    >Simpan</ion-button
+  >
+  <ion-button slots="start" size="small" (click)="sent()">Kirim</ion-button>
+</div>

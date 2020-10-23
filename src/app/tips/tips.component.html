@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar style="--background: #87C540;">
+    <ion-title style="color: white;">Tips & Tricks</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" slot="start"> <ion-icon name="arrow-back" style="color: white;"></ion-icon> </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div style="background: #F2F4F4;">
+  <ion-searchbar (ionInput)="filterTechnologies($event.target.value)" placeholder="Search" style="--background: white;"></ion-searchbar>
+</div>
+<ng-container *ngIf="show">
+  <ion-card id="{{x.id}}" position="stacked" *ngFor="let x of tipslist" (click)="goToDrivePage(x.id)">
+    <ion-card-header>
+      <img *ngIf="x.media !=null" src={{x.media}}/>
+      <ion-card-title>{{x.title}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content text-wrap>
+      {{x.short_desc}}
+    </ion-card-content>
+  </ion-card>
+</ng-container>
+
+<ng-container *ngIf="!show">
+<ion-card id="{{data.id}}" position="stacked">
+  <ion-card-header>
+    <img *ngIf="data.media !=null" src="{{data.media}}"/>
+    <ion-card-title>{{data.title}}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    {{data.content}}
+  </ion-card-content>
+  
+  <ion-item>
+    <ion-label> {{data.source}} </ion-label>
+    <div>
+      {{data.updated_time}}
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <div> {{data.link}} </div>
+  </ion-item>
+</ion-card>
+</ng-container>
+
+</ion-content>

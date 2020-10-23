@@ -1,0 +1,163 @@
+<ion-header>
+  <ion-toolbar style="--background: #87C540;">
+    <ion-title style="color: white;">Eskalasi Siaga</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" slot="start"> <ion-icon name="arrow-back" style="color: white;"></ion-icon> </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-segment" [ngSwitch]="type_segment">
+    <div *ngSwitchCase="'form'" class="form-transportation">
+      <form #formData="ngForm" (ngSubmit)="onSubmit(formData.value)">
+        <div *ngFor="let item of dataQ">
+        
+          <ion-list [(ngModel)]="no1"  [name]="item.parameter_name" ngDefaultControl lines="none" *ngIf="item.parameter_name == 'input_q0'">
+            <ion-radio-group>
+        
+          <ion-list-header>
+            <ion-label> {{item.title_text}} <span class="required" *ngIf="item.required">*</span></ion-label>
+          </ion-list-header>
+        
+          <div style="margin-left: 16px; background: #F8F9F9">
+            <div *ngFor="let isi of item.list" style="width: 47%; display: inline-flex;">
+              <ion-item >
+                <ion-label> {{isi.text}} </ion-label>
+                <ion-radio slot="start" color="success" (click)="changestatus(isi.id, item.parameter_name)" style="margin-right: 5px;" value="{{isi.text}}"></ion-radio>
+              </ion-item>
+            </div>
+          </div>
+        
+        </ion-radio-group>
+          </ion-list>
+          
+          <div *ngIf="item.parameter_name == 'input_q1' ">
+            <ion-label *ngIf="b1 != true" position="stacked" style="font-size: small !important; margin-left: 15px;"> {{item.title_text}} <span class="required">*</span></ion-label>
+            <ion-item *ngIf="b1 != true" style="padding-left: 15px; padding-right: 15px; margin-top: 10px;">
+              <ion-input (ngModel)="item.parameter_name" [name]="item.parameter_name" placeholder="{{item.hint_text}}" required></ion-input>
+            </ion-item>
+            </div> 
+
+            <div *ngIf="b1 != true">
+              <ion-list [(ngModel)]="no3"  [name]="item.parameter_name" ngDefaultControl lines="none" *ngIf="item.parameter_name == 'input_q2'">
+                <ion-radio-group>
+            
+              <ion-list-header>
+                <ion-label> {{item.title_text}} <span class="required" *ngIf="item.required">*</span></ion-label>
+              </ion-list-header>
+            
+              <div style="margin-left: 16px; background: #F8F9F9">
+                <div *ngFor="let isi of item.list" style="width: 47%; display: inline-flex;">
+                  <ion-item >
+                    <ion-label> {{isi.text}} </ion-label>
+                    <ion-radio slot="start" color="success" (click)="changestatus(isi.id, item.parameter_name)"  style="margin-right: 5px;" value="{{isi.text}}"></ion-radio>
+                  </ion-item>
+                </div>
+              </div>
+            
+            </ion-radio-group>
+              </ion-list>
+            </div>
+
+            <div *ngIf="b1 != true">
+              <ion-list [(ngModel)]="no4" [disabled]="b2 == true" [name]="item.parameter_name" ngDefaultControl lines="none" *ngIf="item.parameter_name == 'input_q3'">
+                <ion-radio-group>
+            
+              <ion-list-header>
+                <ion-label> {{item.title_text}} <span class="required" *ngIf="item.required">*</span></ion-label>
+              </ion-list-header>
+            
+              <div style="margin-left: 16px; background: #F8F9F9">
+                <div *ngFor="let isi of item.list" style="width: 47%; display: inline-flex;">
+                  <ion-item disabled="{{b2}}">
+                    <ion-label> {{isi.text}} </ion-label>
+                    <ion-radio slot="start" color="success" (click)="changestatus(isi.id, item.parameter_name)"  style="margin-right: 5px;" value="{{isi.text}}"></ion-radio>
+                  </ion-item>
+                </div>
+              </div>
+            
+            </ion-radio-group>
+              </ion-list>
+            </div>
+            
+            <div *ngIf="b1 != true">
+              <ion-list [(ngModel)]="no5" [disabled]="b3 == true" [name]="item.parameter_name" ngDefaultControl lines="none" *ngIf="item.parameter_name == 'input_q4'">
+                <ion-radio-group>
+            
+              <ion-list-header>
+                <ion-label> {{item.title_text}} <span class="required" *ngIf="item.required">*</span></ion-label>
+              </ion-list-header>
+            
+              <div style="margin-left: 16px; background: #F8F9F9">
+                <div *ngFor="let isi of item.list" style="width: 47%; display: inline-flex;">
+                  <ion-item disabled="{{b3}}">
+                    <ion-label> {{isi.text}} </ion-label>
+                    <ion-radio slot="start" color="success" (click)="changestatus(isi.id, item.parameter_name)"  style="margin-right: 5px;" value="{{isi.text}}"></ion-radio>
+                  </ion-item>
+                </div>
+              </div>
+            
+            </ion-radio-group>
+              </ion-list>
+            </div>
+            
+            <div *ngIf="b1 != true">
+              <ion-list [(ngModel)]="no6"  [name]="item.parameter_name" ngDefaultControl lines="none" *ngIf="item.parameter_name == 'input_q5'">
+                <ion-radio-group>
+            
+              <ion-list-header>
+                <ion-label> {{item.title_text}} <span class="required" *ngIf="item.required">*</span></ion-label>
+              </ion-list-header>
+            
+              <div style="margin-left: 16px; background: #F8F9F9">
+                <div *ngFor="let isi of item.list" style="width: 47%; display: inline-flex;">
+                  <ion-item disabled="{{b4}}">
+                    <ion-label> {{isi.text}} </ion-label>
+                    <ion-radio slot="start" color="success" (click)="changestatus(isi.id, item.parameter_name)"  value="{{isi.text}}"  style="margin-right: 5px;"></ion-radio>
+                  </ion-item>
+                </div>
+              </div>
+            
+            </ion-radio-group>
+              </ion-list>
+            </div>
+
+            <div *ngIf="item.parameter_name == 'input_q6' ">
+              <ion-label *ngIf="b1 != true" position="stacked" style="font-size: small !important; margin-left: 15px;"> {{item.title_text}} <span class="required">*</span></ion-label>
+              <ion-item (click)="searchActivityName()" disabled="{{b5}}" *ngIf="b1 != true" style="padding-left: 15px; padding-right: 15px; margin-top: 10px;">
+                <ion-input autocomplete="true" [(ngModel)]="no7" [name]="item.parameter_name" ></ion-input>
+              </ion-item>
+              </div> 
+
+        <div>
+          <ion-list [(ngModel)]="no8"  [name]="item.parameter_name" ngDefaultControl lines="none" *ngIf="item.parameter_name == 'input_q7'">
+            <ion-radio-group>
+
+          <ion-list-header>
+            <ion-label> {{item.title_text}} <span class="required" *ngIf="item.required">*</span></ion-label>
+          </ion-list-header>
+        
+          <div style="margin-left: 16px; background: #F8F9F9">
+            <div *ngFor="let isi of item.list" style="width: 47%; display: inline-flex;">
+              <ion-item disabled="{{!b1}}">
+                <ion-label> {{isi.text}} </ion-label>
+                <ion-radio slot="start" color="success" (ionSelect)="select(item.parameter_name, isi.id)" value="{{isi.text}}" style="margin-right: 5px;"></ion-radio>
+              </ion-item>
+            </div>
+          </div>
+        
+            </ion-radio-group>
+          </ion-list>
+        </div>
+        
+        <div class="button-action" *ngIf="item.input_type == 'submit'">
+          <ion-button type="submit" color="success" expand="block">Simpan dan Kirim</ion-button>      
+        </div>
+        </div>
+        
+        </form>
+        
+    </div>
+  </div>
+</ion-content>

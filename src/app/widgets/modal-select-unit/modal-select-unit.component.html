@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()"><ion-icon name="arrow-back"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title>Pilih Unit</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)]="keyword" (ionChange)="searching($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngIf="itemByInput.unit != ''">
+      <ion-label (click)="select(itemByInput)">{{ itemByInput.unit }}</ion-label>
+    </ion-item>
+    <ion-item *ngFor="let item of listData">
+      <ion-label (click)="select(item)">
+        {{ item.unit }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

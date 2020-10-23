@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()"><ion-icon name="arrow-back"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title>Masukkan Nama Kota</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)]="keyword" (ionChange)="searching($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngIf="itemByInput.proyek != ''">
+      <ion-label (click)="select(itemByInput)">{{ itemByInput.proyek }}</ion-label>
+    </ion-item>
+    <ion-item *ngFor="let item of listAct">
+      <ion-label (click)="select(item)">
+        {{ item.nama }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" slot="start"> <ion-icon name="arrow-back"></ion-icon> </ion-button>
+    </ion-buttons>
+    <ion-title>Registrasi Pengguna</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #formData="ngForm" (ngSubmit)="onSubmit(formData.value)">
+  <div class="login-content">
+    <img class="bgnya" src="assets/img/bg2.png">
+    <div class="reg-content">
+      <ion-card>
+        <h1>DAFTAR</h1>
+        <ion-item>
+          <ion-icon name="mail" style="margin-right: 10px; margin-bottom: 10px;"></ion-icon>
+          <ion-input [(ngModel)]="email" placeholder="Email" type="email" name="email"
+          ></ion-input>
+        </ion-item>
+        
+        <ion-item lines="none">
+            <small>Verifikasi dan lupa password akan menggunakan email ini</small>
+        </ion-item>
+             
+        <ion-item style="margin-top: 8px;">
+          <ion-icon name="contact" style="margin-right: 10px; margin-bottom: 10px;"></ion-icon>
+          <ion-input [(ngModel)]="name" placeholder="Nama Pengguna" type="text" name="name"
+          ></ion-input>
+        </ion-item>
+      
+        <ion-item style="margin-top: 8px;">
+          <ion-icon name="card" style="margin-right: 10px; margin-bottom: 10px;"></ion-icon>
+          <ion-input [(ngModel)]="nik" placeholder="No KTP / NIK" type="tel" maxlength="16" name="nik"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item style="margin-top: 8px;">
+          <ion-icon name="lock" style="margin-right: 10px; margin-bottom: 10px;"></ion-icon>
+          <ion-input [(ngModel)]="psswd" placeholder="Sandi" [type]="passwordType" name="psswd"
+          ></ion-input>
+          <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword("psswd")'></ion-icon>
+        </ion-item>
+        
+        <ion-item style="margin-top: 8px;">
+          <ion-icon name="lock" style="margin-right: 10px; margin-bottom: 10px;"></ion-icon>
+          <ion-input [(ngModel)]="repsswd" placeholder="Konfirmasi Sandi" [type]="repasswordType" name="repsswd"
+          ></ion-input>          
+        <ion-icon item-end [name]="repasswordIcon" class="passwordIcon" (click)='hideShowPassword("repsswd")'></ion-icon>
+        </ion-item>
+        
+        <ion-button type="submit" expand="block" color="success">Daftar </ion-button>
+      </ion-card>
+    </div>
+  </div>
+</form>
+</ion-content>

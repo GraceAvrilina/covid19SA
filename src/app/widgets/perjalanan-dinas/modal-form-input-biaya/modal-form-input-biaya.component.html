@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()"><ion-icon name="arrow-back"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title *ngIf="type == 'add' || type == 'null'">Tambah Item Biaya</ion-title>
+    <ion-title *ngIf="type == 'edit'">Ubah Item Biaya</ion-title>
+    <ion-title *ngIf="type == 'view'">Item Biaya</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="type != 'view'">
+  <form #formData="ngForm" (ngSubmit)="onSubmit(formData.value)">
+    <ion-item>
+      <ion-label position="stacked">Keterangan : </ion-label>
+      <ion-input type="text" required [(ngModel)]="params.keterangan" name="keterangan"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Jumlah : </ion-label>
+      <ion-input
+        required
+        type="number"
+        (ionChange)="calculate(params.jumlah, 'jumlah')"
+        [(ngModel)]="params.jumlah"
+        name="jumlah"
+      ></ion-input>
+    </ion-item>
+    <ion-item (click)="selectUnit()">
+      <ion-label position="stacked">Unit : </ion-label>
+      <small class="label-only">{{ params.unit }}</small>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Harga per unit : </ion-label>
+      <ion-input
+        required
+        type="number"
+        (ionChange)="calculate(params.harga_unit, 'harga_unit')"
+        [(ngModel)]="params.harga_unit"
+        name="harga_unit"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Harga Total : </ion-label>
+      <ion-input type="text" readonly [(ngModel)]="params.harga_total" name="harga_total"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Tanggal : </ion-label>
+      <ion-datetime
+        required
+        placeholder=""
+        [(ngModel)]="params.tanggal"
+        name="tanggal"
+        display-format="DD-MM-YYYY"
+        [min]="minDate"
+        [max]="maxDate"
+      ></ion-datetime>
+    </ion-item>
+
+    <div class="photo-upload">
+      <label>Media <span class="required">*</span></label>
+      <div class="list-imgupload scrolling-wrapper">
+        <div
+          *ngFor="let img of list_img; let i = index"
+          (click)="selectImg(i)"
+          [class.active]="img_idx == i"
+          class="item-img"
+        >
+          <img src="{{ img }}" />
+          <div *ngIf="img_idx == i" class="btn-delete">
+            <ion-icon name="trash" (click)="removeImg(img_idx)"></ion-icon>
+          </div>
+        </div>
+      </div>
+
+      <ion-button (click)="presentModal()" size="small"
+        ><ion-icon name="add" slot="start"></ion-icon> Upload Gambar
+      </ion-button>
+    </div>
+
+    <ion-button type="submit" expand="block">Kirim</ion-button>
+  </form>
+</ion-content>
+
+<ion-content *ngIf="type == 'view'">
+  <ion-item>
+    <ion-label position="stacked">Keterangan: </ion-label>
+    <ion-input readonly type="text" required [(ngModel)]="params.keterangan" name="keterangan"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Jumlah : </ion-label>
+    <ion-input
+      required
+      readonly
+      type="text"
+      (ionChange)="calculate(params.jumlah, 'jumlah')"
+      [(ngModel)]="params.jumlah"
+      name="jumlah"
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Unit : </ion-label>
+    <small class="label-only">{{ params.unit }}</small>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Harga per unit : </ion-label>
+    <ion-input
+      readonly
+      required
+      type="text"
+      (ionChange)="calculate(params.harga_unit, 'harga_unit')"
+      [(ngModel)]="params.harga_unit"
+      name="harga_unit"
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Harga Total : </ion-label>
+    <ion-input readonly type="text" readonly [(ngModel)]="params.harga_total" name="harga_total"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Tanggal : </ion-label>
+    <ion-input readonly type="text">{{ params.tanggal }}</ion-input>
+  </ion-item>
+
+  <div class="photo-upload">
+    <label>Media <span class="required">*</span></label>
+    <div class="list-imgupload scrolling-wrapper">
+      <div (click)="prevImage()" *ngFor="let img of list_img; let i = index" class="item-img">
+        <img src="{{ img }}" />
+      </div>
+    </div>
+  </div>
+
+  <ion-button type="button" (click)="close()" expand="block">Kembali</ion-button>
+</ion-content>

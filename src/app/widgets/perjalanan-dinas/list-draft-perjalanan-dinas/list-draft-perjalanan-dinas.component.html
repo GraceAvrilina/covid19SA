@@ -1,0 +1,16 @@
+<ion-item (click)="detailDraft(item)" *ngFor="let item of draft">
+  <div class="top-item">
+    <small
+      ><b>{{ item.proyek }}</b></small
+    >
+    <small class="pemakaian">{{ item.pemakaian | formatRupiah }}</small>
+    <br />
+    <small>{{ item.jenis_aktivitas.name }} - {{ item.nama_bendera }}</small
+    ><br />
+    <small class="lokasi-dinas">{{ item.lokasi }}</small>
+    <div class="bottom-item">
+      <div class="price">CA : {{ item.cash_advance | formatRupiah }}</div>
+      <div class="item-date">{{ item.dinas_mulai | formatTanggal }} s/d {{ item.dinas_akhir | formatTanggal }}</div>
+    </div>
+  </div>
+</ion-item>

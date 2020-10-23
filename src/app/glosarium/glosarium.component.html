@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar style="--background: #87C540;">
+    <ion-title style="color: white;">Glosarium</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" slot="start"> <ion-icon name="arrow-back" style="color: white;"></ion-icon> </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="background: #F2F4F4;">
+    <!-- (ionChange)="searching($event)"   -->
+    <ion-searchbar [(ngModel)]="keyword"  placeholder="Search" style="--background: white;" 
+    (keypress)="searching($event)"></ion-searchbar>
+  </div>
+  <div style="padding: 23px;">
+  <ion-row class="rowheader">
+    <ion-col size="2">
+    <ion-label >No.</ion-label>
+  </ion-col>
+  <ion-col size="3">
+    <ion-label >Singkatan</ion-label>
+  </ion-col>
+    <ion-col size="7" style="text-align: center;">
+    <ion-label >Arti Kata</ion-label>
+  </ion-col>
+</ion-row>
+<ion-row style="border-bottom: groove; font-size: small;" [ngClass]="{'bg': i%2 == 1}" 
+*ngFor="let x of gloslist| paginate: { itemsPerPage: itemsPerPage,
+currentPage: p,
+totalItems: bigTotalItems };  let i=index " >
+    <ion-col size="2">
+    <ion-label >{{i + 1}}</ion-label>
+  </ion-col>
+  <ion-col size="3">
+    <ion-label >{{x.name}}</ion-label>
+  </ion-col>
+    <ion-col size="7">
+    <ion-label >: {{x.description}}</ion-label>
+  </ion-col>
+</ion-row>
+<div style="font-size: small; text-align: center;">
+  <pagination-controls (pageChange)="pageChanged(p =  $event)"></pagination-controls>
+</div>
+</div>
+</ion-content>

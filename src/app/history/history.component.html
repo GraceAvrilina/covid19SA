@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar style="--background: #87C540;">
+    <ion-title style="color: white;">Riwayat</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" slot="start"> <ion-icon name="arrow-back" style="color: white;"></ion-icon> </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment color="success" mode="md" value="{{ type_segment }}" [(ngModel)]="type_segment">
+    <ion-segment-button checked (ionSelect)="segmentChanged('assesment')" value="assesment">
+      <div class="segment-content">
+        <label>Self Assesment</label>
+      </div>
+    </ion-segment-button>
+    <ion-segment-button (ionSelect)="segmentChanged('lls')" value="lls">
+      <div class="segment-content">
+        <label>Lingkungan Sekitar</label>
+      </div>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="type_segment" style="margin-top: 8px;">
+    <ion-list *ngSwitchCase="'assesment'">
+      <ion-item *ngFor="let item of histlistass; let i = index" (click)="goToDrivePage(item)">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12">
+              <div>
+                <button class="btnmenu" [ngStyle]="{'background-color' : item.color}"> 
+                  <ion-row>
+                    <ion-col size="6">
+                  <h6 class="titlebtn"> {{item.task_name}} </h6>
+                  </ion-col>
+                  <ion-col size="4">
+                <h6 class="titlebtn"> {{item.date}} </h6>
+                </ion-col>
+                <ion-col size="2">
+              <h6 class="titlebtn"> {{item.score}} </h6>
+              </ion-col>
+                  </ion-row>
+                </button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item> 
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'lls'">
+      <ion-item *ngFor="let val of histlistlls; let i = index" (click)="gotoDetail(val)">
+        <ion-label>{{val.create_time }}</ion-label>
+        <ion-icon slot="end" name="arrow-forward" style="width: 17px;"></ion-icon>
+
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

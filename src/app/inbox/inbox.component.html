@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar style="--background: #87C540;">
+    <ion-title style="color: white;">Inbox</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" slot="start"> <ion-icon name="arrow-back" style="color: white;"></ion-icon> </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card position="stacked" >
+    <ion-card-header>
+      <ion-card-title>{{notifikasi.title}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content text-wrap>
+      {{notifikasi.body}}
+    </ion-card-content>
+  </ion-card>
+
+  <!-- <ion-card position="stacked" >
+    <ion-card-header>
+      <ion-card-title>{{title}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content text-wrap>
+      {{body}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card position="stacked" >
+    <ion-card-header>
+      <ion-card-title>{{title}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content text-wrap>
+      {{body}}
+    </ion-card-content>
+  </ion-card> -->
+
+</ion-content>

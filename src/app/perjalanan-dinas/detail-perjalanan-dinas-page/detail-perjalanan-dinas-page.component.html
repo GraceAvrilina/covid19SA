@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" slot="start"> <ion-icon name="arrow-back"></ion-icon> </ion-button>
+    </ion-buttons>
+    <ion-title>Perjalanan Dinas</ion-title>
+    <ion-buttons slot="primary">
+      <ion-buttons slot="primary">
+        <!-- <label class="additem" (click)="addItem()">Tambah Item</label> -->
+      </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="detail">
+    <app-form-perjalanan-dinas
+      (reload)="reloadForm()"
+      (addListBiaya)="addListItemBiaya($event)"
+      [pemakaian]="pemakaian"
+      [listBiaya]="list_biaya"
+      [oldData]="data"
+      [type]="type"
+      (setTglDinas)="setTglDinas($event)"
+    ></app-form-perjalanan-dinas>
+  </div>
+  <ion-fab *ngIf="type != 'sent'" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addListItemBiaya('add')">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

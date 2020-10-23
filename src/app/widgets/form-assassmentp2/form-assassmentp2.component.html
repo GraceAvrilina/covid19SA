@@ -1,0 +1,492 @@
+<form #formData="ngForm" >
+  <!-- 
+(ngSubmit)="onSubmit(formData.value)" -->
+  <!-- <div [class.hidden]="type == 'sent'" class="info-input-form"> -->
+    <!-- <ion-row>
+      <ion-col size="2"
+        ><div class="info-icon"><ion-icon name="information-circle-outline"></ion-icon></div
+      ></ion-col>
+      <ion-col size="10"
+        ><div class="info-text">
+          {{info_form}}
+        </div></ion-col
+      >
+    </ion-row> -->
+  <!-- </div> -->
+
+<h6 class="textstyle">B. Resiko Lingkungan </h6>
+<ion-list lines="none">
+    <ion-radio-group value="never">
+
+  <ion-list-header>
+    <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;">9. Riwayat perjalanan atau tinggal di kota berikut 30 hari yang lalu <span class="required">*</span></ion-label>
+  </ion-list-header>
+
+  <ion-row lines="none">
+      <ion-col size="6">
+        <ion-item>
+        <ion-label>Jabodetabek</ion-label>
+        <ion-radio slot="start" value="jabodetabek"></ion-radio>
+      </ion-item>
+      </ion-col>
+
+
+      <ion-col size="6">
+      <ion-item>
+        <ion-label>Medan</ion-label>
+        <ion-radio slot="start" value="medan"></ion-radio>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row lines="none">
+    <ion-col size="6">
+      <ion-item>
+      <ion-label>Bandung</ion-label>
+      <ion-radio slot="start" value="bandung"></ion-radio>
+    </ion-item>
+    </ion-col>
+
+
+    <ion-col size="6">
+    <ion-item>
+      <ion-label>Batam</ion-label>
+      <ion-radio slot="start" value="batam"></ion-radio>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+<ion-row lines="none">
+  <ion-col size="6">
+    <ion-item>
+    <ion-label>Yogyakarta</ion-label>
+    <ion-radio slot="start" value="yogyakarta"></ion-radio>
+  </ion-item>
+  </ion-col>
+
+
+  <ion-col size="6">
+  <ion-item>
+    <ion-label>Pontianak</ion-label>
+    <ion-radio slot="start" value="pontianak"></ion-radio>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+<ion-row lines="none">
+  <ion-col size="6">
+    <ion-item>
+    <ion-label>Solo</ion-label>
+    <ion-radio slot="start" value="solo"></ion-radio>
+  </ion-item>
+  </ion-col>
+
+
+  <ion-col size="6">
+  <ion-item>
+    <ion-label>Bali</ion-label>
+    <ion-radio slot="start" value="bali"></ion-radio>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+<ion-row lines="none">
+  <ion-col size="6">
+    <ion-item>
+    <ion-label>Surabaya</ion-label>
+    <ion-radio slot="start" value="surabaya"></ion-radio>
+  </ion-item>
+  </ion-col>
+
+
+  <ion-col size="6">
+  <ion-item>
+    <ion-label>Semarang</ion-label>
+    <ion-radio slot="start" value="semarang"></ion-radio>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+<ion-row lines="none">
+  <ion-col size="6">
+    <ion-item>
+    <ion-label>Lainnya</ion-label>
+    <ion-radio slot="start" value="lain"></ion-radio>
+  </ion-item>
+  </ion-col>
+
+
+  <ion-col size="6">
+  <ion-item>
+    <ion-label>Tidak Pernah</ion-label>
+    <ion-radio slot="start" value="never"></ion-radio>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none">
+  <ion-radio-group value="never">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;">10. Riwayat perjalanan atau tinggal di negara berikut 30 hari yang lalu <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row lines="none">
+    <ion-col size="6">
+      <ion-item>
+      <ion-label>China</ion-label>
+      <ion-radio slot="start" value="china"></ion-radio>
+    </ion-item>
+    </ion-col>
+
+
+    <ion-col size="6">
+    <ion-item>
+      <ion-label>Italia</ion-label>
+      <ion-radio slot="start" value="italia"></ion-radio>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+<ion-row lines="none">
+  <ion-col size="6">
+    <ion-item>
+    <ion-label>Malaysia</ion-label>
+    <ion-radio slot="start" value="malaysia"></ion-radio>
+  </ion-item>
+  </ion-col>
+
+
+  <ion-col size="6">
+  <ion-item>
+    <ion-label>Amerika</ion-label>
+    <ion-radio slot="start" value="amerika"></ion-radio>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+<ion-row lines="none">
+<ion-col size="6">
+  <ion-item>
+  <ion-label>Singapura</ion-label>
+  <ion-radio slot="start" value="singapura"></ion-radio>
+</ion-item>
+</ion-col>
+
+
+<ion-col size="6">
+<ion-item>
+  <ion-label>Inggris</ion-label>
+  <ion-radio slot="start" value="inggris"></ion-radio>
+</ion-item>
+</ion-col>
+</ion-row>
+
+<ion-row lines="none">
+<ion-col size="6">
+  <ion-item>
+  <ion-label>Hongkong</ion-label>
+  <ion-radio slot="start" value="hongkong"></ion-radio>
+</ion-item>
+</ion-col>
+
+
+<ion-col size="6">
+<ion-item>
+  <ion-label>Perancis</ion-label>
+  <ion-radio slot="start" value="perancis"></ion-radio>
+</ion-item>
+</ion-col>
+</ion-row>
+
+<ion-row lines="none">
+<ion-col size="6">
+  <ion-item>
+  <ion-label>Korea</ion-label>
+  <ion-radio slot="start" value="korea"></ion-radio>
+</ion-item>
+</ion-col>
+
+
+<ion-col size="6">
+<ion-item>
+  <ion-label>Jerman</ion-label>
+  <ion-radio slot="start" value="jerman "></ion-radio>
+</ion-item>
+</ion-col>
+</ion-row>
+
+<ion-row lines="none">
+<ion-col size="6">
+  <ion-item>
+  <ion-label>Lainnya</ion-label>
+  <ion-radio slot="start" value="lain"></ion-radio>
+</ion-item>
+</ion-col>
+
+
+<ion-col size="6">
+<ion-item>
+  <ion-label>Tidak Pernah</ion-label>
+  <ion-radio slot="start" value="never"></ion-radio>
+</ion-item>
+</ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-list lines="none"  name="no11" ngDefaultControl>
+  <ion-radio-group value="no">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;">11. Pernah memiliki kontak dengan orang yang dinyatakan positif COVID-19 atau PDP dalam 30 hari terakhir? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row lines="none">
+    <ion-col size="6">
+      <ion-item>
+      <ion-label>Ya</ion-label>
+      <ion-radio slot="start" (click)="changestatus('ya')" value="ya"></ion-radio>
+    </ion-item>
+    </ion-col>
+
+
+    <ion-col size="6">
+    <ion-item>
+      <ion-label>Tidak <b><small>(Langsung ke pertanyaan 15)</small></b></ion-label>
+      <ion-radio slot="start" (click)="changestatus('tidak')" value="tidak"></ion-radio>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-item lines="none" [class.hidden]="no11 == 'tidak'">
+  <ion-label position="stacked">12. Sebutkan lokasi kontak</ion-label>
+  <ion-input *ngIf="type != 'sent'" [(ngModel)]="transport.klien" name="klien" placeholder="Sebutkan lokasi kontak"></ion-input>
+  <small *ngIf="type == 'sent'" class="label-only">{{ transport.klien }}</small>
+</ion-item>
+
+<ion-item lines="none" [class.hidden]="no11 == 'tidak'">
+  <ion-label position="stacked">13. Siapa?</ion-label>
+  <ion-input *ngIf="type != 'sent'" [(ngModel)]="transport.klien" name="klien" placeholder="Siapa?"></ion-input>
+  <small *ngIf="type == 'sent'" class="label-only">{{ transport.klien }}</small>
+</ion-item>
+
+<ion-item lines="none" [class.hidden]="no11 == 'tidak'">
+  <ion-label position="stacked">14. Kapan?</ion-label>
+  <ion-input *ngIf="type != 'sent'" [(ngModel)]="transport.klien" name="klien" placeholder="Kapan?"></ion-input>
+  <small *ngIf="type == 'sent'" class="label-only">{{ transport.klien }}</small>
+</ion-item>
+
+<ion-list lines="none" [(ngModel)]="no15" [ngModelOptions]="{standalone: true}" name="no15" ngDefaultControl>
+  <ion-radio-group value="no">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;">15. Pernah memiliki kontak dengan orang yang dinyatakan positif COVID-19 atau ODP dalam 30 hari terakhir? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row lines="none">
+    <ion-col size="6">
+      <ion-item>
+      <ion-label>Ya</ion-label>
+      <ion-radio slot="start" (click)="changestatus15('ya')" value="ya"></ion-radio>
+    </ion-item>
+    </ion-col>
+
+
+    <ion-col size="6">
+    <ion-item>
+      <ion-label>Tidak <b><small>(Langsung ke pertanyaan 19)</small></b></ion-label>
+      <ion-radio slot="start" (click)="changestatus15('tidak')" value="tidak"></ion-radio>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-item lines="none" [class.hidden]="no15 == 'tidak'">
+  <ion-label position="stacked">16. Sebutkan lokasi kontak</ion-label>
+  <ion-input *ngIf="type != 'sent'" [(ngModel)]="transport.klien" name="klien" placeholder="Sebutkan lokasi kontak"></ion-input>
+  <small *ngIf="type == 'sent'" class="label-only">{{ transport.klien }}</small>
+</ion-item>
+
+<ion-item lines="none" [class.hidden]="no15 == 'tidak'">
+  <ion-label position="stacked">17. Siapa?</ion-label>
+  <ion-input *ngIf="type != 'sent'" [(ngModel)]="transport.klien" name="klien" placeholder="Siapa?"></ion-input>
+  <small *ngIf="type == 'sent'" class="label-only">{{ transport.klien }}</small>
+</ion-item>
+
+<ion-item lines="none" [class.hidden]="no15 == 'tidak'">
+  <ion-label position="stacked">18. Kapan?</ion-label>
+  <ion-input *ngIf="type != 'sent'" [(ngModel)]="transport.klien" name="klien" placeholder="Kapan?"></ion-input>
+  <small *ngIf="type == 'sent'" class="label-only">{{ transport.klien }}</small>
+</ion-item>
+
+<ion-list lines="none" [(ngModel)]="no19" [ngModelOptions]="{standalone: true}" name="no19" ngDefaultControl>
+  <ion-radio-group value="no">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;">19. Pernah mengunjungi pertemuan kantor atau lokasi yang ada orang positif COVID-19? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row lines="none">
+    <ion-col size="6">
+      <ion-item>
+      <ion-label>Ya</ion-label>
+      <ion-radio slot="start" (click)="changestatus19('ya')" value="ya"></ion-radio>
+    </ion-item>
+    </ion-col>
+
+
+    <ion-col size="6">
+    <ion-item>
+      <ion-label>Tidak <b><small>(Langsung ke pertanyaan 23)</small></b></ion-label>
+      <ion-radio slot="start" (click)="changestatus19('tidak')" value="tidak"></ion-radio>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-item lines="none" [class.hidden]="no19 == 'tidak'">
+  <ion-label position="stacked">20. Sebutkan lokasi kontak</ion-label>
+  <ion-input *ngIf="type != 'sent'" [(ngModel)]="transport.klien" name="klien" placeholder="Sebutkan lokasi kontak"></ion-input>
+  <small *ngIf="type == 'sent'" class="label-only">{{ transport.klien }}</small>
+</ion-item>
+
+<ion-item lines="none" [class.hidden]="no19 == 'tidak'">
+  <ion-label position="stacked">21. Siapa?</ion-label>
+  <ion-input *ngIf="type != 'sent'" [(ngModel)]="transport.klien" name="klien" placeholder="Siapa?"></ion-input>
+  <small *ngIf="type == 'sent'" class="label-only">{{ transport.klien }}</small>
+</ion-item>
+
+<ion-item lines="none" [class.hidden]="no19 == 'tidak'">
+  <ion-label position="stacked">22. Kapan?</ion-label>
+  <ion-input *ngIf="type != 'sent'" [(ngModel)]="transport.klien" name="klien" placeholder="Kapan?"></ion-input>
+  <small *ngIf="type == 'sent'" class="label-only">{{ transport.klien }}</small>
+</ion-item>
+
+<ion-list lines="none" [(ngModel)]="no23" [ngModelOptions]="{standalone: true}" name="no23" ngDefaultControl>
+  <ion-radio-group value="no">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;">23. Pernah mengunjungi fasilitas kesehatan COVID-19 dalam 30 hari terakhir? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row lines="none">
+    <ion-col size="6">
+      <ion-item>
+      <ion-label>Ya</ion-label>
+      <ion-radio slot="start" (click)="changestatus23('ya')" value="ya"></ion-radio>
+    </ion-item>
+    </ion-col>
+
+
+    <ion-col size="6">
+    <ion-item>
+      <ion-label>Tidak <b><small>(Langsung ke pertanyaan 26)</small></b></ion-label>
+      <ion-radio slot="start" (click)="changestatus23('tidak')" value="tidak"></ion-radio>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-item lines="none" [class.hidden]="no23 == 'tidak'">
+  <ion-label position="stacked">24. Sebutkan lokasi </ion-label>
+  <ion-input *ngIf="type != 'sent'" [(ngModel)]="transport.klien" name="klien" placeholder="Sebutkan lokasi kontak"></ion-input>
+  <small *ngIf="type == 'sent'" class="label-only">{{ transport.klien }}</small>
+</ion-item>
+
+<ion-item lines="none" [class.hidden]="no23 == 'tidak'">
+  <ion-label position="stacked">25. Kapan?</ion-label>
+  <ion-input *ngIf="type != 'sent'" [(ngModel)]="transport.klien" name="klien" placeholder="Kapan?"></ion-input>
+  <small *ngIf="type == 'sent'" class="label-only">{{ transport.klien }}</small>
+</ion-item>
+
+<ion-list lines="none">
+  <ion-radio-group value="never">
+
+<ion-list-header>
+  <ion-label position="stacked" style="text-transform: capitalize; letter-spacing: 0px;">26. Apakah lingkungan tempat tinggal lockdown? <span class="required">*</span></ion-label>
+</ion-list-header>
+
+<ion-row lines="none">
+    <ion-col size="6">
+      <ion-item>
+      <ion-label>RT</ion-label>
+      <ion-radio slot="start" value="RT"></ion-radio>
+    </ion-item>
+    </ion-col>
+
+
+    <ion-col size="6">
+    <ion-item>
+      <ion-label>RW</ion-label>
+      <ion-radio slot="start" value="RW"></ion-radio>
+    </ion-item>
+  </ion-col>
+</ion-row>
+
+<ion-row lines="none">
+  <ion-col size="6">
+    <ion-item>
+    <ion-label>Kelurahan</ion-label>
+    <ion-radio slot="start" value="kel"></ion-radio>
+  </ion-item>
+  </ion-col>
+
+
+  <ion-col size="6">
+  <ion-item>
+    <ion-label>Kecamatan</ion-label>
+    <ion-radio slot="start" value="kec"></ion-radio>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+<ion-row lines="none">
+<ion-col size="6">
+  <ion-item>
+  <ion-label>Kota/Kabupaten</ion-label>
+  <ion-radio slot="start" value="kota"></ion-radio>
+</ion-item>
+</ion-col>
+
+<ion-col size="6">
+<ion-item>
+  <ion-label>Tidak Lockdown</ion-label>
+  <ion-radio slot="start" value="never"></ion-radio>
+</ion-item>
+</ion-col>
+</ion-row>
+
+</ion-radio-group>
+</ion-list>
+
+<ion-item lines="none">
+  <ion-label position="stacked">27. Pernyataan: <span class="required">*</span></ion-label>
+  <ion-row >
+    <ion-col size="2">
+      <ion-checkbox color="dark"></ion-checkbox>
+    </ion-col>    
+    <ion-col size="10">
+  <div> Saya menyatakan bahwa semua pernyataan yang saya jawab adalah sesuai
+    dengan kondisi yang sebenarnya</div>
+    </ion-col>
+    </ion-row>
+</ion-item>
+  <div class="button-action" *ngIf="type != 'sent'">
+    <ion-button type="submit" expand="block">Simpan & Kirim</ion-button>
+    
+  </div>
+</form>

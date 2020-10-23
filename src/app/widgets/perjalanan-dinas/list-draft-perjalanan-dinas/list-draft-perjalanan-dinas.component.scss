@@ -1,0 +1,27 @@
+/* list draft */
+.top-item {
+  width: 100%;
+  display: block;
+  small {
+    font-size: 0.85rem;
+    &.lokasi-dinas {
+      font-size: 0.7rem;
+    }
+    &.pemakaian {
+      float: right;
+    }
+  }
+}
+.bottom-item {
+  width: 100%;
+  margin-top: 10px;
+  .price,
+  .item-date {
+    font-size: 0.85rem;
+    display: inline;
+  }
+  .item-date {
+    float: right;
+    font-size: 0.75rem;
+  }
+}

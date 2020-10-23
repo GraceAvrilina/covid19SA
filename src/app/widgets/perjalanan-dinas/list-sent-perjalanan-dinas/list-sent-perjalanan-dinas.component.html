@@ -1,0 +1,39 @@
+<ion-item (click)="detailSent(item)" *ngFor="let item of sent">
+  <div class="top-item">
+    <small
+      ><b>{{ item.aktivitas }}</b>
+      <ion-icon
+        class="red-font"
+        *ngIf="item.pemakaian_koreksi != item.pemakaian && item.pemakaian_koreksi != null"
+        name="information-circle-outline"
+      ></ion-icon
+    ></small>
+    <div class="right-price" *ngIf="item.pemakaian_koreksi != item.pemakaian">
+      <small class="pemakaian" [class.correction]="item.pemakaian_koreksi != null">{{
+        item.pemakaian | formatRupiah
+      }}</small>
+      <small *ngIf="item.pemakaian_koreksi != null" class="pemakaian-final"
+        >{{ item.pemakaian_koreksi | formatRupiah }}
+      </small>
+    </div>
+
+    <div class="right-price" *ngIf="item.pemakaian_koreksi == item.pemakaian">
+      <small class="pemakaian">{{ item.pemakaian | formatRupiah }}</small>
+    </div>
+
+    <br />
+    <small>{{ item.id_jenis_activity.name }} - {{ item.id_bendera.name }}</small
+    ><small
+      class="status"
+      [class.done]="item.status == 'done'"
+      [class.waiting]="item.status == 'waiting'"
+      [class.approved]="item.status == 'approved'"
+      >{{ item.status_text }}</small
+    ><br />
+    <small class="lokasi-dinas">{{ item.lokasi }}</small>
+    <div class="bottom-item">
+      <div class="price">CA : {{ item.cash_advance | formatRupiah }}</div>
+      <div class="item-date">{{ item.dinas_mulai | formatTanggal }} s/d {{ item.dinas_berakhir | formatTanggal }}</div>
+    </div>
+  </div>
+</ion-item>

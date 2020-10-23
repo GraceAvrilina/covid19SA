@@ -1,0 +1,133 @@
+<ion-content>
+  <div class="profile-header">
+    <img class="bg-header" src="assets/img/bg-header-profile.jpg" />
+    <div class="toolbar">
+      <ion-buttons slot="start">
+        <ion-icon (click)="back()" name="arrow-back"></ion-icon> <small (click)="back()">Profile</small>
+      </ion-buttons>
+      <!-- <div (click)="edit()" class="edit-btn"><ion-icon name="create"></ion-icon></div> -->
+    </div>
+  </div>
+  <div class="image-avatar">
+    <img (click)="prevImage()" [src]="previmg" onerror="this.src='assets/img/default-user.png'" />
+    <!-- <input (change)="onChangeFile($event)" accept="image/*,video/mp4" class="gambarnya"
+      type="file" name="rest_pic1" id="rest_pic1"> -->
+    <div class="fullname">{{ nama }}</div>
+  </div>
+  <form #formData="ngForm" (ngSubmit)="onSubmit(formData.value);">
+  <div class="info-user">
+    <h2 style="margin-left: 25px;">Akun</h2>
+    <ion-item>
+      <ion-label position="stacked">Nama</ion-label>
+      <ion-input [(ngModel)]="profile.nama" name="nama"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input [(ngModel)]="profile.email" name="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Sandi</ion-label>
+      <ion-input placeholder="Sandi" (ngModel)="profile.password" type="password" name="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Konfirmasi Sandi</ion-label>
+      <ion-input placeholder="Konfirmasi Sandi" (ngModel)="profile.repassword" type="password" name="repassword"></ion-input>
+    </ion-item>
+    <ion-list>
+      <input (change)="readUrl($event)" style="display: none;" #gallery type="file" accept="image/*;capture=camera" />
+      <ion-item (click)="gallery.click()">
+        <img class="img-profile" [src]="previmg" onerror="this.src='assets/img/default-user.png'"/><small>Ganti foto</small>
+      </ion-item>
+    </ion-list>
+
+    <h2 style="margin-left: 25px;">Data Diri</h2>
+      <ion-item>
+        <ion-label position="stacked">Nomor KTP/NIK</ion-label>
+        <ion-input [(ngModel)]="data.nik" type="tel" maxlength="16" name="nik"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Tanggal Lahir</ion-label>
+        <ion-input [(ngModel)]="data.ttl" type="tel" maxlength="10" name="tanggal_lahir"></ion-input>        
+        <small class="label-date">format: yyyy-mm-dd</small>
+    </ion-item>
+    <ion-item>
+        <ion-label position="stacked">Jenis Kelamin</ion-label>
+        <!-- <ion-input [(ngModel)]="data.gender" name="jenis_kelamin"></ion-input>         -->
+        <ion-select
+        [(ngModel)]="data.gender"
+        name="jenis_kelamin"
+        interface="popover"
+      >
+        <ion-select-option value="Female">Female</ion-select-option>
+        <ion-select-option value="Male">Male</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label position="stacked">NIP</ion-label>
+        <ion-input [(ngModel)]="data.nip" type="tel" name="nip"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="stacked">Nomor Handphone</ion-label>
+        <ion-input [(ngModel)]="data.nope" type="tel" maxlength="13" name="telepon"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Dinas/Kantor Bertugas</ion-label>
+      <!-- <ion-input [(ngModel)]="data.dinas" name="dinas"></ion-input> -->
+      <ion-select
+      [(ngModel)]="data.dinas"
+      name="dinas"
+      color="success"
+    >
+      <ion-select-option *ngFor="let kantor of listkantor" value="{{ kantor.name }}">{{
+        kantor.name
+      }}</ion-select-option>
+    </ion-select>
+      </ion-item>
+    <ion-item>
+    <ion-label position="stacked">Divisi</ion-label>
+    <!-- <ion-input [(ngModel)]="data.divisi" name="divisi"></ion-input> -->
+    <ion-select
+      [(ngModel)]="data.divisi"
+      name="divisi"
+      interface="popover"
+    >
+      <ion-select-option *ngFor="let divisi of listdiv" value="{{ divisi.name }}">{{
+        divisi.name
+      }}</ion-select-option>
+    </ion-select>
+    </ion-item>
+    
+    <ion-item>
+    <ion-label position="stacked">Alamat Kerja</ion-label>
+    <ion-input [(ngModel)]="data.alamatktr" name="alamat_kerja"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label position="stacked">Alamat Tinggal</ion-label>
+    <ion-input [(ngModel)]="data.alamat" name="alamat_tinggal"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+    <ion-label position="stacked">Kota / Kabupaten</ion-label>
+    <ion-input [(ngModel)]="data.kota" name="kota"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Nomor Darurat</ion-label>
+      <ion-input [(ngModel)]="data.nodar" type="tel" maxlength="13" name="no_darurat"></ion-input>
+    </ion-item>
+    <ion-item> 
+      <ion-label position="stacked">Pemilik Nomor Darurat</ion-label>
+      <!-- <ion-input [(ngModel)]="data.pnodar" name="pnodar"></ion-input> -->
+      <ion-select
+        [(ngModel)]="data.pnodar"
+        name="pemilik_no_darurat"
+        interface="popover"
+      >
+        <ion-select-option *ngFor="let nodar of listnodar" value="{{ nodar.nama }}">{{
+          nodar.nama
+        }}</ion-select-option>
+      </ion-select>
+    </ion-item> 
+    <ion-button type="submit" expand="block" color="success">Simpan </ion-button>
+  </div>
+</form>
+</ion-content>

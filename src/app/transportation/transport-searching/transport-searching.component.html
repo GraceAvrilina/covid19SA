@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" slot="start"> <ion-icon name="arrow-back"></ion-icon> </ion-button>
+    </ion-buttons>
+    <ion-title>Pencarian Transportasi</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="form-searching">
+    <ion-item>
+      <ion-label position="stacked">Kata kunci</ion-label>
+      <ion-input name="keyword" [(ngModel)]="transport.keyword" placeholder="(aktivitas/klien/no.laporan)"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Tanggal Berangkat</ion-label>
+      <ion-datetime
+        [(ngModel)]="transport.tgl_berangkat"
+        name="tgl_berangkat"
+        display-format="YYYY-MM-DD"
+        placeholder="Pilih tanggal berangkat"
+      ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Tanggal Kirim</ion-label>
+      <ion-datetime
+        [(ngModel)]="transport.tgl_kirim"
+        placeholder="Pilih tanggal kirim"
+        name="tgl_kirim"
+        display-format="YYYY-MM-DD"
+      ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Pembayaran</ion-label>
+      <ion-select
+        [(ngModel)]="transport.jenis_bayar"
+        name="jenis_bayar"
+        placeholder="Pilih jenis pembayaran"
+        interface="popover"
+      >
+        <ion-select-option value="voucher">Voucher</ion-select-option>
+        <ion-select-option value="nonvoucher">Non Voucher</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Jenis Transportasi</ion-label>
+      <ion-select
+        [(ngModel)]="transport.jenis_transport"
+        (ionChange)="onChangeType(C.value)"
+        #C
+        name="jenis_transport"
+        placeholder="Pilih jenis transportasi"
+        interface="popover"
+      >
+        <ion-select-option *ngFor="let t of typeTransport" [value]="t.id">{{ t.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Pilih Status</ion-label>
+      <ion-select [(ngModel)]="transport.status" name="status" placeholder="Pilih Status" interface="popover">
+        <ion-select-option *ngFor="let s of status" [value]="s.value">{{ s.text }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br />
+    <ion-button type="submit" expand="block" (click)="search()">Cari</ion-button>
+    <ion-button color="light" expand="block" (click)="reset()">Reset</ion-button>
+  </div>
+</ion-content>

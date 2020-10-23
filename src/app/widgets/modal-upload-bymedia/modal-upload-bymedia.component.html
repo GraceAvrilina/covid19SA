@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons (click)="close()" slot="start">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-buttons>
+
+    <ion-title>Pilih Sumber</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="content-action text-center">
+    <input (change)="readUrl($event)" style="display: none;" #camera type="file" accept="image/*" capture="camera" />
+    <input (change)="readUrl($event)" style="display: none;" #gallery type="file" accept="image/*" />
+
+    <ion-button color="primary" (click)="getCamera()"
+      ><ion-icon slot="start" name="camera"></ion-icon> Camera</ion-button
+    >
+    <ion-button (click)="gallery.click()" color="secondary"
+      ><ion-icon name="images" slot="start"></ion-icon> Galeri</ion-button
+    >
+  </div>
+</ion-content>

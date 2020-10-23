@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" slot="start"> <ion-icon name="arrow-back"></ion-icon> </ion-button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons slot="primary">
+      <!-- <ion-button (click)="addItem()" size="small" color="primary">Tambah Item</ion-button> -->
+      <label class="additem" (click)="addItem()">Tambah Item</label>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="detail">
+    <app-form-transport
+      [listBendera]="listBendera"
+      [type]="type"
+      [oldData]="data"
+      [typeTransport]="typeTransport"
+    ></app-form-transport>
+  </div>
+</ion-content>

@@ -1,0 +1,39 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar style="--background: #87C540;">
+    <ion-buttons (click)="close()" slot="start">
+      <ion-icon name="arrow-back" style="color: white;"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<div>
+  <div style="background: #87C540;">
+    <ion-label position="stacked"><h1 style="text-align: center; color: white; margin-bottom: 15px;
+      padding-top: 17px;">Self Assessment</h1></ion-label>
+    <ion-label position="stacked"><h1 style="text-align: center; color: white;"> 
+      {{username}} </h1></ion-label>
+      <ion-label position="stacked"><h1 style="text-align: center; color: white; padding-bottom: 15px; font-size: smaller;"> 
+        {{dinas}} </h1></ion-label>
+        <ion-label position="stacked"><h1 style="text-align: center; color: white; padding-bottom: 15px; font-size: smaller;"> 
+          {{nip}} </h1></ion-label>
+  </div>
+  <ion-item>
+  <div>
+    <img src="{{item.image_status}}" style="width: 60%; display: block; margin-left: auto; margin-right: auto;">
+    <!-- <ion-label position="stacked"> -->
+      <div [ngStyle]="{'color': item.color}" style="margin-top: -25px;"><h1 style="text-align: center; font-size: x-large;"> {{item.status}}</h1>
+      </div>
+    <!-- </ion-label> -->
+    <!-- <ion-label position="stacked"> -->
+      <div [ngStyle]="{'color': item.color}" style="margin-top: -22px;"><h1 style="text-align: center;font-size: xxx-large;"> {{item.score}}</h1>
+      </div>
+    <!-- </ion-label> -->
+
+    <div><h5 style="text-align: center; font-size: smaller;">{{item.date | formatTanggal}}</h5>
+    <h5 style="text-align: center; font-size: smaller;">Pukul {{item.jam}} WIB</h5></div>
+  </div>
+</ion-item>
+<div><h5 style="padding-left: 15px; padding-right: 15px;
+  font-size: medium;">{{item.saran}}</h5></div>
+</div>
+</ion-content>

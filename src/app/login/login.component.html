@@ -1,0 +1,78 @@
+<ion-content>
+  <div class="login-content">
+    <img class="bgnya" src="assets/img/bg2.png"/>
+    <!-- <div class="bgnya" src="/assets/img/bg2.png"></div> -->
+  <div class="lgn">
+    <!-- <picture>
+      <img
+        class="bg-login"
+        sizes="(max-width: 1400px) 100vw, 1400px"
+        srcset="
+          ./assets/img/bg-login/2-12_v8k0dl_c_scale,w_200.jpg   200w,
+          ./assets/img/bg-login/2-12_v8k0dl_c_scale,w_351.jpg   351w,
+          ./assets/img/bg-login/2-12_v8k0dl_c_scale,w_470.jpg   470w,
+          ./assets/img/bg-login/2-12_v8k0dl_c_scale,w_574.jpg   574w,
+          ./assets/img/bg-login/2-12_v8k0dl_c_scale,w_674.jpg   674w,
+          ./assets/img/bg-login/2-12_v8k0dl_c_scale,w_754.jpg   754w,
+          ./assets/img/bg-login/2-12_v8k0dl_c_scale,w_833.jpg   833w,
+          ./assets/img/bg-login/2-12_v8k0dl_c_scale,w_913.jpg   913w,
+          ./assets/img/bg-login/2-12_v8k0dl_c_scale,w_978.jpg   978w,
+          ./assets/img/bg-login/2-12_v8k0dl_c_scale,w_1049.jpg 1049w,
+          ./assets/img/bg-login/2-12_v8k0dl_c_scale,w_1118.jpg 1118w,
+          ./assets/img/bg-login/2-12_v8k0dl_c_scale,w_1180.jpg 1180w,
+          ./assets/img/bg-login/2-12_v8k0dl_c_scale,w_1247.jpg 1247w,
+          ./assets/img/bg-login/2-12_v8k0dl_c_scale,w_1308.jpg 1308w,
+          ./assets/img/bg-login/2-12_v8k0dl_c_scale,w_1363.jpg 1363w,
+          ./assets/img/bg-login/2-12_v8k0dl_c_scale,w_1387.jpg 1387w,
+          ./assets/img/bg-login/2-12_v8k0dl_c_scale,w_1400.jpg 1400w
+        "
+        src="./assets/img/bg-login/2-12_v8k0dl_c_scale,w_1400.jpg"
+        alt=""
+      />
+    </picture> -->
+    <img class="logo-app" src="{{workspace}}" />
+    <div class="form-login">
+      <h1>COVID-19 <br/>
+      SELF ASSESSMENT</h1>
+      <label class="title-login">Login</label>
+      <ion-input
+        autocomplete="off"
+        [(ngModel)]="params.email"
+        placeholder="Masukan email anda"
+        type="email"
+        name="email"
+      ></ion-input>
+      <ion-row>
+        <ion-col size="12">
+        <ion-input autocomplete="off" [(ngModel)]="params.password" placeholder="Masukan password anda" 
+        [type]="passwordType" name="password"></ion-input>
+        <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+        </ion-col>
+      </ion-row>
+
+      <br />
+      <label (click)="presentModalForgetPass()">Lupa password ?</label>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button (click)="onSubmit()" expand="block" color="success">Masuk </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button (click)="selectMenu('login/register')" expand="block" color="light">Registrasi </ion-button>
+        </ion-col>
+      </ion-row>
+
+      <label class="login2">Atau masuk menggunakan</label>
+      <ion-row>
+        <!-- <ion-col size="6" size-md>
+          <div style="float:right;">
+          <ion-icon class="logo" src='assets/pwa/facebook.svg' (click)="signInWithFB()"></ion-icon>
+        </div >
+        </ion-col> -->
+        <ion-col size="12" size-md>
+          <ion-icon class="logo" src='assets/pwa/google.svg' (click)="signInWithGoogle()" style="margin: 0 auto; display: block;"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+  </div>
+</ion-content>

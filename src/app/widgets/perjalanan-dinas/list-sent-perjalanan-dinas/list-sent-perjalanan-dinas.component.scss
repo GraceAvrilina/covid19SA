@@ -1,0 +1,65 @@
+/* list draft */
+.top-item {
+  width: 100%;
+  display: block;
+  padding-top: 10px;
+
+  .right-price {
+    margin-top: -20px;
+  }
+
+  small {
+    font-size: 0.85rem;
+    &.lokasi-dinas {
+      font-size: 0.7rem;
+    }
+    &.pemakaian {
+      float: right;
+      font-weight: bold;
+      &.correction {
+        text-decoration: line-through;
+        color: red;
+        font-weight: bold;
+      }
+    }
+    &.pemakaian-final {
+      color: #000;
+      float: right;
+      margin-right: 3px;
+      border-right: 2px solid #cecece;
+      padding-right: 5px;
+      font-weight: bold;
+    }
+  }
+}
+.bottom-item {
+  width: 100%;
+  margin-top: 10px;
+  .price,
+  .item-date {
+    font-size: 0.85rem;
+    display: inline;
+  }
+  .item-date {
+    float: right;
+    font-size: 0.75rem;
+  }
+}
+.status {
+  background: #ff0101;
+  color: #fff;
+  border-radius: 5px;
+  float: right;
+  padding: 5px 8px;
+  font-size: 0.64rem !important;
+  margin-top: 8px;
+  &.approved {
+    background: rgba(35, 187, 53, 0.99);
+  }
+  &.waiting {
+    background: #f99900;
+  }
+  &.done {
+    background: #48acf3;
+  }
+}

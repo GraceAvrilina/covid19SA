@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar style="--background: #87C540;">
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" slot="start"> <ion-icon name="arrow-back" style="color: white;"></ion-icon> </ion-button>
+    </ion-buttons>
+    <ion-title style="color: white;">Lapor Lingkungan Sekitar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-segment" [ngSwitch]="type_segment">
+    <div *ngSwitchCase="'form'" class="form-lingkungan">
+    <app-form-lingkungan></app-form-lingkungan>
+    </div>
+  </div>
+</ion-content>
+ 
+

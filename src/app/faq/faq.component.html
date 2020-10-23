@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar style="--background: #87C540;">
+    <ion-title style="color: white;">FAQ</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" slot="start"> <ion-icon name="arrow-back" style="color: white;"></ion-icon> </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-label class="judul">FAQ</ion-label>
+  <div style="padding: 24px; margin-top: 7vh;">
+  <ion-list *ngFor="let x of faqlist; let i=index" class="accordion-list" detail="false" style="margin-bottom: 5px;">
+    <ion-item class="ion-no-padding" tappable (click)="toogleSection(i)" [ngClass]="{'section-active': x.open, 'section' : !x.open}" style="width: 98%;">
+      <ion-label class="ion-text-wrap">
+        {{x.question}}
+      </ion-label>
+      <ion-icon slot="end" name="arrow-down" *ngIf=!x.open style="width: 17px;"></ion-icon>
+      <ion-icon slot="end" name="arrow-up" *ngIf=x.open style="width: 17px;"></ion-icon>
+    </ion-item>
+
+    <div *ngIf="x.open" class="ion-text-justify">
+      <span style="font-size: small;" [innerHtml]="x.answer"></span>
+    </div>
+
+    </ion-list>
+  </div>
+</ion-content>

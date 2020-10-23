@@ -1,0 +1,17 @@
+ion-fab {
+  // bottom: 115px;
+  bottom: calc(20vh - 10px);
+}
+ion-content {
+  --padding-bottom: 130px;
+}
+
+.segment-content {
+  ion-icon {
+    text-align: center;
+    font-size: 22px;
+  }
+  label {
+    display: block;
+  }
+}

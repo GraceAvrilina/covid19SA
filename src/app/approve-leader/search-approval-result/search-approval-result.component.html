@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" slot="start"> <ion-icon name="arrow-back"></ion-icon> </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Approval Leader
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment mode="md" value="{{ type_segment }}" [(ngModel)]="type_segment">
+      <ion-segment-button (ionSelect)="segmentChanged('waiting')" value="waiting">
+        <div class="segment-content">
+          <div class="badge-count">{{ total_waiting }}</div>
+          <ion-icon name="clipboard"></ion-icon>
+          <label>Menunggu</label>
+        </div>
+      </ion-segment-button>
+      <ion-segment-button (ionSelect)="segmentChanged('rejected')" value="rejected">
+        <div class="segment-content">
+          <div class="badge-count">{{ total_rejected }}</div>
+          <ion-icon name="clipboard"></ion-icon>
+          <label>Ditolak</label>
+        </div>
+      </ion-segment-button>
+      <ion-segment-button (ionSelect)="segmentChanged('approved')" value="approved">
+        <div class="segment-content">
+          <div class="badge-count">{{ total_approved }}</div>
+          <ion-icon name="clipboard"></ion-icon>
+          <label>Disetujui</label>
+        </div>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content-segment" [ngSwitch]="type_segment">
+    <div class="list-waiting" *ngSwitchCase="'waiting'">
+      <app-list-approval (reload)="reloadData()" [data]="list_waiting"></app-list-approval>
+      <div *ngIf="loading_spinner" class="loading-spinner">
+        <ion-spinner color="primary" name="crescent"></ion-spinner>
+      </div>
+      <div *ngIf="load_more_waiting && list_waiting.length >= 10" class="load-more" (click)="loadMoreData()">
+        Tampilkan lebih banyak
+      </div>
+    </div>
+    <div class="list-rejected" *ngSwitchCase="'rejected'">
+      <app-list-approval [data]="list_reject"></app-list-approval>
+      <div *ngIf="loading_spinner" class="loading-spinner">
+        <ion-spinner color="primary" name="crescent"></ion-spinner>
+      </div>
+      <div *ngIf="load_more_rejected && list_reject.length >= 10" class="load-more" (click)="loadMoreData()">
+        Tampilkan lebih banyak
+      </div>
+    </div>
+    <div class="list-approved" *ngSwitchCase="'approved'">
+      <app-list-approval [data]="list_approve"></app-list-approval>
+      <div *ngIf="loading_spinner" class="loading-spinner">
+        <ion-spinner color="primary" name="crescent"></ion-spinner>
+      </div>
+      <div *ngIf="load_more_approved && list_approve.length >= 10" class="load-more" (click)="loadMoreData()">
+        Tampilkan lebih banyak
+      </div>
+    </div>
+  </div>
+</ion-content>

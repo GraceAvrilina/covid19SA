@@ -1,0 +1,71 @@
+.profile-header {
+  background-image: linear-gradient(180deg, #ffa110 -4%, #ff2525 74%);
+  height: 9rem;
+  color: #fff;
+  font-size: 1.4rem;
+  padding: 10px;
+  opacity: 0.9;
+  z-index: 1;
+}
+.bg-header {
+  position: absolute;
+  z-index: -1;
+  height: 9rem;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  top: 0px;
+  left: 0px;
+  opacity: 0.5;
+}
+.edit-btn {
+  position: absolute;
+  right: 10px;
+  top: 7px;
+}
+
+ion-buttons {
+  small {
+    margin-left: 10px;
+  }
+}
+.img-profile {
+  width: 2rem;
+  margin-right: 10px;
+  padding-bottom: 10px;
+}
+.image-avatar {
+  position: relative;
+  top: -50px;
+  img {
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover;
+    border: 3px solid #fff;
+    margin: 0 auto;
+    display: block;
+    border-radius: 3rem;
+  }
+  .gambar {
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover;
+    border: 3px solid #fff;
+    margin: 0 auto;
+    display: block;
+    border-radius: 3rem;
+  }
+  .fullname {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #5a4e4e;
+  }
+}
+.info-user {
+  margin-top: -20px;
+  small {
+    text-align: left;
+    width: 100%;
+  }
+}

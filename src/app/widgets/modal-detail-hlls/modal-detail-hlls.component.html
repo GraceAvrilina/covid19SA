@@ -1,0 +1,32 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar style="--background: #87C540;">
+    <ion-buttons (click)="close()" slot="start">
+      <ion-icon name="arrow-back" style="color: white;"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div style="background: #87C540; padding-bottom: 43px;">
+    <!-- <ion-label position="stacked"> -->
+      <h1 style="text-align: center; color: white; margin-bottom: 15px;
+      padding-top: 40px; margin-top: 0px;">Lapor Lingkungan</h1>
+      <!-- </ion-label> -->
+  </div>  
+  <div style="padding-left: 21px;">
+    <div *ngFor="let val of datanya">
+      <h5 style="font-weight: bold; font-size: medium;">{{val.object}}</h5>
+      <h5 style="font-size: medium;">{{val.status}}</h5>
+    </div>
+    <!-- <div *ngIf="val.object=='Kota/Kabupaten'">
+      <h5 style="font-weight: bold; font-size: medium;">{{val.object}}</h5>
+      <h5>{{val.status}}</h5>
+    </div> -->    
+    <h5 style="font-weight: bold; font-size: medium;">Siapa yang mengalami gejala?</h5>
+    <div *ngFor="let val of detil">
+      <div *ngIf="val.status != '' && val.status != null && val.object != 'Alamat' && val.object != 'Kota/Kabupaten'">
+        <!-- <h5 style="font-weight: bold; font-size: medium;">{{val.object}}</h5> -->
+        <h5 style="font-size: medium;"><i class="dot"></i> {{val.object}} {{val.status}}</h5>
+      </div>
+    </div>
+  </div>
+</ion-content>

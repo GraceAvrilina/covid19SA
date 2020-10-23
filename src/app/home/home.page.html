@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button mode="md" (click)="openFirst()"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scroll-y="true">
+  <div class="login-content">
+    <!-- <div class="bgnya" src="/assets/img/bgr.png"></div> -->
+    <img class="bgnya" src="assets/img/bgr.png"/>
+  <div class="lgn">
+    <img src="{{logo}}" class="logo">
+  
+    <div>
+    <button class="btnstatus" *ngIf="score!=null" [ngStyle]="{'background-color': warnaIcon}" (click)="godetail()">    
+      <ion-row>
+        <ion-col size="4">
+          <div style="color: white; font-size: x-large;">{{score}}</div>
+        </ion-col>
+        <ion-col size="8">
+          <div style="font-size: x-small; color: white;"> {{tgl}} </div>
+          <div style="color: white;">{{statusUser}}</div>
+        </ion-col>
+      </ion-row>
+  </button>
+  <button class="btnstatus" *ngIf="score==null" [ngStyle]="{'background-color': warnaIcon}" (click)="godetail()">    
+    <ion-row>
+      <!-- <ion-col size="4">
+        <div style="color: white; font-size: x-large;">{{score}}</div>
+      </ion-col> -->
+      <ion-col size="12">
+        <div style="font-size: small; color: white;"> {{tgl}} </div>
+        <div style="color: white;  font-size: large; font-weight: 600;">{{statusUser}}</div>
+      </ion-col>
+    </ion-row>
+</button>
+    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <div style="margin-top: 2vh;">
+            <button *ngIf="goprofile" class="btnmenu" (click)="toastprofile()"> 
+            <h6 class="titlebtn">Self Assessment</h6>
+            <small class="detailbtn">Pantau Kesehatan Anda Setiap Hari</small>
+            <div class="badge-count" *ngIf="countnya">1</div>
+            </button>
+            <button *ngIf="goInit && !goprofile" class="btnmenu" (click)="selectMenu('home/selfassassment')"> 
+            <h6 class="titlebtn">Self Assessment</h6>
+            <small class="detailbtn">Pantau Kesehatan Anda Setiap Hari</small>
+            <div class="badge-count" *ngIf="countnya">1</div>
+            </button>
+            <button *ngIf="!goInit && !ganormal && !goprofile" class="btnmenu" (click)="selectMenu('home/QDDdaily')"> 
+            <h6 class="titlebtn">Self Assessment</h6>
+            <small class="detailbtn">Pantau Kesehatan Anda Setiap Hari</small>
+            <div class="badge-count" *ngIf="countnya">1</div>
+            </button>
+            <button *ngIf="!goInit && ganormal && !goprofile" class="btnmenu" (click)="selectMenu('home/FormEskalasi')"> 
+            <h6 class="titlebtn">Self Assessment</h6>
+            <small class="detailbtn">Pantau Kesehatan Anda Setiap Hari</small>
+            <div class="badge-count" *ngIf="countnya">1</div>
+            </button>
+          </div>
+        </ion-col>
+        <ion-col size="12">
+          <!-- <div > -->
+            <button *ngIf="goprofile" class="btnmenu" (click)="toastprofile()">  
+            <h6 class="titlebtn">Lapor Lingkungan</h6>
+            <small class="detailbtn">Laporkan Kondisi Keluarga dan Lingkungan di Sekitar Anda</small>
+            <div class="badge-count" *ngIf="countnya2">1</div>
+            </button>
+            <button *ngIf="!goprofile" class="btnmenu" (click)="selectMenu('home/lingkungan')">  
+              <h6 class="titlebtn">Lapor Lingkungan</h6>
+              <small class="detailbtn">Laporkan Kondisi Keluarga dan Lingkungan di Sekitar Anda</small>
+              <div class="badge-count" *ngIf="countnya2">1</div>
+              </button>
+          <!-- </div> -->
+        </ion-col>
+        <ion-col size="12">
+          <!-- <div > -->
+            <button *ngIf="goprofile" class="btnmenu" (click)="toastprofile()"> 
+            <h6 class="titlebtn">Riwayat</h6>
+            <small class="detailbtn">Riwayat Kesehatan Anda</small>
+            </button>
+            <button *ngIf="!goprofile" class="btnmenu" (click)="selectMenu('home/history')"> 
+            <h6 class="titlebtn">Riwayat</h6>
+            <small class="detailbtn">Riwayat Kesehatan Anda</small>
+            </button>
+          <!-- </div> -->
+        </ion-col>
+        <ion-col size="12">
+          <div style="margin-top: 1.5vh;">
+            <button class="btnmenull" (click)="selectMenu('home/tips')"> 
+            <h6 class="titlebtn">Tips & Trick </h6>
+            <small class="detailbtn">Menghadapi COVID-19</small>
+            </button>
+          </div>
+        </ion-col>
+        <ion-col size="12">
+          <div >
+            <button class="btnmenull" (click)="selectMenu('home/faq')"> 
+            <h6 class="titlebtn">FAQ </h6>
+            <small class="detailbtn">Tanya Jawab COVID-19</small>
+            </button>
+          </div>
+        </ion-col>
+        <ion-col size="12">
+          <div >
+            <button class="btnmenull" (click)="selectMenu('home/glosarium')"> 
+            <h6 class="titlebtn">Glosarium </h6>
+            <small class="detailbtn">Singkatan Penting</small>
+            </button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</div>
+</ion-content>

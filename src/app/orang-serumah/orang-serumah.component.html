@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar style="--background: #87C540;">
+    <ion-title style="color: white;">Identitas Orang Serumah</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" slot="start"> <ion-icon name="arrow-back" style="color: white;"></ion-icon> </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #formData="ngForm">
+  <ion-card position="stacked" *ngFor="let x of serumah; let idx = index ">
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary" position="floating">Nama</ion-label>
+        <ion-input autocomplete="off" autocorrect="off"  clearInput="true" clearOnEdit="true" color="primary" inputmode="text" [(ngModel)]="x.nama" placeholder="Nama" [ngModelOptions]="{standalone: true}"></ion-input>
+        <ion-icon class="ion-align-self-center" name="person" color="primary" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary" position="floating">Umur</ion-label>
+        <ion-input autocomplete="off" autocorrect="off"  type="tel" maxlength="13" clearInput="true" clearOnEdit="true" color="primary" inputmode="number" [(ngModel)]="x.umur" placeholder="Umur" [ngModelOptions]="{standalone: true}"></ion-input>
+        <ion-icon class="ion-align-self-center" name="calendar" color="primary" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary" position="floating">Hubungan</ion-label>
+        <ion-input autocomplete="off" autocorrect="off" clearInput="true" clearOnEdit="true" color="primary" inputmode="text" [(ngModel)]="x.hubungan" placeholder="Hubungan" [ngModelOptions]="{standalone: true}"></ion-input>
+        <ion-icon class="ion-align-self-center" name="heart" color="primary" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary" position="floating">Pekerjaan</ion-label>
+        <ion-input autocomplete="off" autocorrect="off"  clearInput="true" clearOnEdit="true" color="primary" inputmode="text" [(ngModel)]="x.pekerjaan" placeholder="Pekerjaan" [ngModelOptions]="{standalone: true}"></ion-input>
+        <ion-icon class="ion-align-self-center" name="briefcase" color="primary" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+    <ion-button (click)="onDelete(idx);" type="submit" expand="block" color="Danger">Hapus Anggota</ion-button>
+  </ion-card>
+  </form>
+
+  <form  #formData="ngForm" (ngSubmit)="onSubmit(formData.value);">
+  <ion-card position="stacked">
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary" position="floating">Nama<span class="required"></span></ion-label>
+        <ion-input [(ngModel)]="nama" name="nama" autocomplete="off" autocorrect="off" clearInput="true" clearOnEdit="true" color="primary" inputmode="text" placeholder="Nama"></ion-input>
+        <ion-icon class="ion-align-self-center" name="person" color="primary" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary" position="floating">Umur <span class="required"></span></ion-label>
+        <ion-input [(ngModel)]="umur" name="umur" type="tel" autocomplete="off" autocorrect="off" clearInput="true" clearOnEdit="true" color="primary" inputmode="number" placeholder="Umur"></ion-input>
+        <ion-icon class="ion-align-self-center" name="calendar" color="primary" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary" position="floating">Hubungan<span class="required"></span></ion-label>
+        <ion-input [(ngModel)]="hubungan" name="hubungan" autocomplete="off" autocorrect="off" clearInput="true" clearOnEdit="true" color="primary" inputmode="text" placeholder="Hubungan"></ion-input>
+        <ion-icon class="ion-align-self-center" name="heart" color="primary" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary" position="floating">Pekerjaan<span class="required"></span></ion-label>
+        <ion-input [(ngModel)]="pekerjaan" name="pekerjaan" autocomplete="off" autocorrect="off" clearInput="true" clearOnEdit="true" color="primary" inputmode="text" placeholder="Pekerjaan"></ion-input>
+        <ion-icon class="ion-align-self-center" name="briefcase" color="primary" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+
+    <ion-button type="submit" expand="block" color="success">Tambah Anggota</ion-button>
+  </ion-card>
+</form>
+</ion-content>
+<ion-footer>
+    <ion-button (click)="onSave(formData.value);" type="submit" expand="block" color="success">Simpan</ion-button>
+</ion-footer>

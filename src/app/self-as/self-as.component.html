@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar style="--background: #87C540;">
+    <ion-title style="color: white;">Self Assessment</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" slot="start"> <ion-icon name="arrow-back" style="color: white;"></ion-icon> </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-item >
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <div>
+            <button class="btnmenu" (click)="selectMenu('home/FormIsiEskalasi')" *ngIf="status == 'Siaga'"> 
+              <h6 class="titlebtn"> Eskalasi {{status}} </h6>
+              <h6 class="titlebtn"> Eskalasi untuk status {{status}} </h6>
+            </button>
+            <button class="btnmenu" (click)="selectMenu('home/EskWaspada')" *ngIf="status == 'Waspada'"> 
+              <h6 class="titlebtn"> Eskalasi {{status}} </h6>
+              <h6 class="titlebtn"> Eskalasi untuk status {{status}} </h6>
+            </button>
+            <button class="btnmenu" (click)="selectMenu('home/EskBahaya')" *ngIf="status == 'Bahaya'"> 
+              <h6 class="titlebtn"> Eskalasi {{status}} </h6>
+              <h6 class="titlebtn"> Eskalasi untuk status {{status}} </h6>
+            </button>
+            <button class="btnmenu" (click)="selectMenu('home/EskPositif')" *ngIf="status == 'Positif'"> 
+              <h6 class="titlebtn"> Eskalasi {{status}} </h6>
+              <h6 class="titlebtn"> Eskalasi untuk status {{status}} </h6>
+            </button>
+          </div>
+        </ion-col>
+        <ion-col size="12">
+          <div>
+            <button class="btnmenu" (click)="selectMenu('home/QDDdaily')"> 
+              <!-- <ion-row> -->
+                <!-- <ion-col size="12"> -->
+              <h6 class="titlebtn"> Deteksi Dini (Inisiatif) </h6>
+              <h6 class="titlebtn"> Periksa Diri </h6>
+              <!-- </ion-col> -->
+              <!-- </ion-row> -->
+            </button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item> 
+</ion-content>

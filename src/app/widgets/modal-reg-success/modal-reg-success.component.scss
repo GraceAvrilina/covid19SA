@@ -1,0 +1,36 @@
+.forgetpass-content {
+    padding: 10%;
+    margin-top: 10vh;
+    .title {
+      text-align: left;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #2da04b;
+    }
+    .custom-btn {
+      padding: 10px 65px;
+      background: #2da04b;
+      color: #fff;
+      margin: 0 auto;
+      display: block;
+      border-radius: 16px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+      margin-bottom: 5rem;
+    }
+    
+  ion-button{
+    --border-radius: 25px;
+    letter-spacing: 1px;
+    margin-top: 11vh;
+}
+  }
+
+  

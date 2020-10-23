@@ -1,0 +1,35 @@
+<div id="list-approval">
+  <ion-list>
+    <ion-item (click)="showDetail(item)" *ngFor="let item of data">
+      <div class="top-item">
+        <small [class.done]="item.status == 'done'"
+          ><b>{{ item.proyek }}</b></small
+        >
+        <div class="right-price" *ngIf="item.pemakaian_koreksi != item.pemakaian">
+          <small class="pemakaian" [class.correction]="item.pemakaian_koreksi != null">{{
+            item.pemakaian | formatRupiah
+          }}</small>
+          <small *ngIf="item.pemakaian_koreksi != null" class="pemakaian-final">{{
+            item.pemakaian_koreksi | formatRupiah
+          }}</small>
+        </div>
+
+        <div class="right-price" *ngIf="item.pemakaian_koreksi == item.pemakaian">
+          <small class="pemakaian">{{ item.pemakaian | formatRupiah }}</small>
+        </div>
+
+        <br />
+        <div class="employee-name wrap-text">{{ item.first_name }}</div>
+        <small>{{ item.id_jenis_activity.name }} - {{ item.id_bendera.name }}</small
+        ><br />
+        <small class="lokasi-dinas">{{ item.lokasi }}</small>
+        <div class="bottom-item">
+          <div class="price">CA : {{ item.cash_advance | formatRupiah }}</div>
+          <div class="item-date">
+            {{ item.dinas_mulai | formatTanggal }} s/d {{ item.dinas_berakhir | formatTanggal }}
+          </div>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</div>

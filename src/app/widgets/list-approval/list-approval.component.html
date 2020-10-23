@@ -1,0 +1,41 @@
+<div id="list-approval">
+  <ion-list>
+    <ion-item (click)="showDetail(item)" *ngFor="let item of data">
+      <div class="top-item" *ngIf="item.type == 'reimburse'">
+        <div class="employee-name">{{ item.first_name }}</div>
+        <small class="title" [class.done]="item.status == 'done'"
+          ><b>{{ item.proyek }} - {{ item.klien }}</b></small
+        ><br />
+        <small>{{ item.type }} - {{ item.id_jenis.name }}</small>
+        <div class="bottom-item" *ngIf="item.nominal != item.nominal_koreksi && item.nominal_koreksi != null">
+          <div class="price" [class.correction]="item.custom_nominal_koreksi != 0">{{ item.custom_nominal }}</div>
+          <div class="price-final" *ngIf="item.custom_nominal_koreksi != 0">{{ item.custom_nominal_koreksi }}</div>
+          <div class="item-date">{{ item.waktu_kirim }}</div>
+        </div>
+
+        <div class="bottom-item" *ngIf="item.nominal == item.nominal_koreksi || item.nominal_koreksi == null">
+          <div class="price">{{ item.custom_nominal }}</div>
+          <div class="item-date">{{ item.waktu_kirim }}</div>
+        </div>
+      </div>
+
+      <div class="top-item" *ngIf="item.type == 'transport'">
+        <div class="employee-name wrap-text">{{ item.first_name }}</div>
+        <small class="title"
+          ><b>{{ item.proyek }} - {{ item.klien }}</b></small
+        ><br />
+        <small>{{ item.type }} - {{ item.jenis_bayar.name }}</small>
+        <div class="bottom-item" *ngIf="item.nominal != item.nominal_koreksi && item.nominal_koreksi != null">
+          <div class="price" [class.correction]="item.custom_nominal_koreksi != 0">{{ item.custom_nominal }}</div>
+          <div class="price-final" *ngIf="item.custom_nominal_koreksi != 0">{{ item.custom_nominal_koreksi }}</div>
+          <div class="item-date">{{ item.waktu_kirim }}</div>
+        </div>
+
+        <div class="bottom-item" *ngIf="item.nominal == item.nominal_koreksi || item.nominal_koreksi == null">
+          <div class="price">{{ item.custom_nominal }}</div>
+          <div class="item-date">{{ item.waktu_kirim }}</div>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</div>

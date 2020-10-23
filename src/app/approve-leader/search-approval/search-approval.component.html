@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" slot="start"> <ion-icon name="arrow-back"></ion-icon> </ion-button>
+    </ion-buttons>
+    <ion-title>Pencarian Approval</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="form-searching">
+    <ion-item>
+      <ion-label position="stacked">Kata kunci</ion-label>
+      <ion-input
+        name="keyword"
+        [(ngModel)]="params.keyword"
+        placeholder="(aktivitas/klien/karyawan/no.laporan)"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Tanggal Kejadian</ion-label>
+      <ion-datetime
+        [(ngModel)]="params.tgl_kejadian"
+        name="tgl_kejadian"
+        display-format="YYYY-MM-DD"
+        placeholder="Pilih tanggal kejadian"
+      ></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Tanggal Kirim</ion-label>
+      <ion-datetime
+        [(ngModel)]="params.tgl_kirim"
+        name="tgl_kirim"
+        display-format="YYYY-MM-DD"
+        placeholder="Pilih tanggal kirim"
+      ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Jenis Laporan</ion-label>
+      <ion-select
+        [(ngModel)]="params.jenis_laporan"
+        name="jenis_laporan"
+        placeholder="Pilih Jenis Laporan"
+        interface="popover"
+      >
+        <ion-select-option value="transport">Transportasi</ion-select-option>
+        <ion-select-option value="reimburse">Reimburse</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br />
+    <ion-button type="submit" expand="block" (click)="search()">Cari</ion-button>
+    <ion-button color="light" expand="block" (click)="reset()">Reset</ion-button>
+  </div>
+</ion-content>

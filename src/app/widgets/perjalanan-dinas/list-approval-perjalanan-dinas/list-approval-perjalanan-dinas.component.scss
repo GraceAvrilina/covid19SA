@@ -1,0 +1,53 @@
+/* list draft */
+.top-item {
+  width: 100%;
+  display: block;
+  padding-top: 10px;
+  .right-price {
+    margin-top: -20px;
+  }
+  small {
+    font-size: 0.85rem;
+    &.lokasi-dinas {
+      font-size: 0.7rem;
+    }
+    &.pemakaian {
+      float: right;
+      font-weight: bold;
+      &.correction {
+        text-decoration: line-through;
+        color: red;
+      }
+    }
+    &.pemakaian-final {
+      color: #000;
+      float: right;
+      margin-right: 3px;
+      border-right: 2px solid #cecece;
+      padding-right: 5px;
+      font-weight: bold;
+    }
+  }
+}
+.bottom-item {
+  width: 100%;
+  margin-top: 10px;
+  .price,
+  .item-date {
+    font-size: 0.85rem;
+    display: inline;
+  }
+  .item-date {
+    float: right;
+    font-size: 0.75rem;
+  }
+}
+
+.employee-name {
+  font-size: 0.7rem;
+  font-weight: 600;
+  float: right;
+}
+.done {
+  color: #124c8a;
+}

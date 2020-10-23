@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Biaya Perjalanan Dinas</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="data.status != 'approved' && data.status != 'done'">
+  <ion-item>
+    <ion-label position="stacked">Jumlah</ion-label>
+    <ion-input
+      [(ngModel)]="res.jumlah"
+      (ionChange)="changeFormatNominal(res.jumlah, 'jumlah')"
+      name="jumlah"
+      type="text"
+    ></ion-input>
+  </ion-item>
+  <ion-item (click)="selectUnit()">
+    <ion-label position="stacked">Unit</ion-label>
+    <small class="label-only">{{ res.unit }}</small>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Harga Unit</ion-label>
+    <ion-input
+      [(ngModel)]="res.harga_unit"
+      (ionChange)="changeFormatNominal(res.harga_unit, 'harga_unit')"
+      name="harga_unit"
+      type="text"
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Harga Total</ion-label>
+    <ion-input [(ngModel)]="res.harga_total" name="harga_total" readonly></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Alasan Koreksi</ion-label>
+    <ion-input [(ngModel)]="res.alasan_koreksi" name="alasan_koreksi"></ion-input>
+  </ion-item>
+  <div class="photo-upload">
+    <label>Media</label>
+    <div class="list-imgupload scrolling-wrapper">
+      <div (click)="prevImage()" *ngFor="let img of data.photo; let i = index" class="item-img">
+        <img src="{{ img }}" />
+      </div>
+    </div>
+  </div>
+  <ion-button type="button" expand="block" (click)="save()">Simpan</ion-button>
+  <ion-button type="button" expand="block" (click)="cancel()" color="light">Batal</ion-button>
+</ion-content>
+
+<ion-content *ngIf="data.status == 'approved' || data.status == 'done'">
+  <ion-item>
+    <ion-label position="stacked">Jumlah</ion-label>
+    <ion-input
+      readonly
+      [(ngModel)]="res.jumlah"
+      (ionChange)="changeFormatNominal(res.jumlah, 'jumlah')"
+      name="jumlah"
+      type="number"
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Unit</ion-label>
+    <small class="label-only">{{ res.unit }}</small>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Harga Unit</ion-label>
+    <ion-input
+      readonly
+      [(ngModel)]="res.harga_unit"
+      (ionChange)="changeFormatNominal(res.harga_unit, 'harga_unit')"
+      name="harga_unit"
+      type="number"
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Harga Total</ion-label>
+    <ion-input readonly [(ngModel)]="res.harga_total" name="harga_total" readonly></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Alasan Koreksi</ion-label>
+    <ion-input readonly [(ngModel)]="res.alasan_koreksi" name="alasan_koreksi"></ion-input>
+  </ion-item>
+
+  <div class="photo-upload">
+    <label>Media</label>
+    <div class="list-imgupload scrolling-wrapper">
+      <div (click)="prevImage()" *ngFor="let img of data.photo; let i = index" class="item-img">
+        <img src="{{ img }}" />
+      </div>
+    </div>
+  </div>
+
+  <ion-button type="button" expand="block" (click)="cancel()">Kembali</ion-button>
+</ion-content>
